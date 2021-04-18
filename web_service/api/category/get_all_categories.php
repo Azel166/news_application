@@ -6,41 +6,41 @@
     header('Content-Type: application/json; charset=UTF-8');
     
     include_once '../../config/Database.php';
-    include_once '../../model/Tag.php';
+    include_once '../../model/Category.php';
 
     // instantiate DB & connect
     $database = new Database();
 
     $db = $database->connect();
 
-    $tag = new Tag($db);
+    $category = new Category($db);
 
     // Article query
-    $result = $tag->getAllTags();
+    $result = $category->getAllCategories();
 
     $num = $result->rowCount();
 
     if ($num > 0){
 
-        $tag_array = array();
-        $tag_array['data'] = array();
+        $category_array = array();
+        $category_array['data'] = array();
 
         while ($row = $result->fetch(PDO::FETCH_ASSOC)){
             extract($row);
 
-            $tag_item = array(
-                'tag_id' => $tag_id,
-                'tag' => $tag
+            $category_item = array(
+                'category_id' => $category_id,
+                'category_name' => $category_name 
             );
 
-        array_push($tag_array['data'], $tag_item);
+        array_push($category_array['data'], $category_item);
 
 
         }
 
         http_response_code(200);
 
-        echo json_encode($tag_array);
+        echo json_encode($category_array);
 
 
 
@@ -49,7 +49,7 @@
 
     } else {
         echo json_encode(
-			array('message' => 'no tag found')
+			array('message' => 'no category found')
 
 		);
 
