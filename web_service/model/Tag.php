@@ -25,6 +25,18 @@ public function getAllTags(){
     return $ps;
 }
 
+public function getTagsByArticle($article_id){
+    $article_id = htmlspecialchars(strip_tags($article_id));
+
+    $query = 'SELECT * FROM '.$this->table.'  t INNER JOIN article_tag art ON t.tag_id = art.tag_id WHERE art.article_id = '.$article_id;
+
+    $ps = $this->connection->prepare($query);
+
+    $ps->execute();
+
+    return $ps;
+}
+
 
 
 }
