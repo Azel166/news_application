@@ -6,41 +6,44 @@
     header('Content-Type: application/json; charset=UTF-8');
     
     include_once '../../config/Database.php';
-    include_once '../../model/Category.php';
+    include_once '../../model/Tag.php';
 
     // instantiate DB & connect
     $database = new Database();
 
     $db = $database->connect();
 
-    $category = new Category($db);
+    $tag = new Tag($db);
 
+    $article_id = isset($_GET['id']) ? htmlspecialchars(strip_tags($_GET['id'])) : die();
     // Article query
-    $result = $category->getAllCategories();
+    $result = $tag->getTagsByArticle($article_id);
 
     $num = $result->rowCount();
 
     if ($num > 0){
 
-        $category_array = array();
-        
+        $tag_array = array();
+        $tag_array['article_id'] = $article_id;
+        $tag_array['tags'] = array();
+     
 
         while ($row = $result->fetch(PDO::FETCH_ASSOC)){
             extract($row);
 
-            $category_item = array(
-                'category_id' => $category_id,
-                'category_name' => $category_name 
+            $tag_item = array(
+                'tag_id' => $tag_id,
+                'tag' => $tag
             );
 
-        array_push($category_array, $category_item);
+        array_push($tag_array['tags'], $tag_item);
 
 
         }
 
         http_response_code(200);
 
-        echo json_encode($category_array);
+        echo json_encode($tag_array);
 
 
 
@@ -49,7 +52,7 @@
 
     } else {
         echo json_encode(
-			array('message' => 'no category found')
+			array('message' => 'no tag found')
 
 		);
 

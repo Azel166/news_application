@@ -23,7 +23,7 @@
     if ($num > 0){
 
         $tag_array = array();
-        $tag_array['data'] = array();
+     
 
         while ($row = $result->fetch(PDO::FETCH_ASSOC)){
             extract($row);
@@ -33,7 +33,7 @@
                 'tag' => $tag
             );
 
-        array_push($tag_array['data'], $tag_item);
+        array_push($tag_array, $tag_item);
 
 
         }

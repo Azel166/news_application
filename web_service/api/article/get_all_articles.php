@@ -23,7 +23,7 @@
     if ($num > 0){
 
         $article_array = array();
-        $article_array['data'] = array();
+
 
         while ($row = $result->fetch(PDO::FETCH_ASSOC)){
             extract($row);
@@ -38,7 +38,7 @@
                 'category_id' => $category_id
             );
 
-        array_push($article_array['data'], $article_item);
+        array_push($article_array, $article_item);
 
 
         }

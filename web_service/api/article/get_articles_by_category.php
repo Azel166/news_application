@@ -16,7 +16,7 @@
     $article = new Article($db);
 
 
-    $category_id = isset($_GET['id']) ? htmlspecialchars(strip_categorys($_GET['id'])) : die();
+    $category_id = isset($_GET['id']) ? htmlspecialchars(strip_tags($_GET['id'])) : die();
     // Article query
     $result = $article->getArticlesByCategory($category_id);
 
@@ -25,7 +25,9 @@
     if ($num > 0){
 
         $article_array = array();
-        $article_array['data'] = array();
+        $article_array['category_id'] = $category_id;
+        $article_array['articles'] = array();
+     
 
         while ($row = $result->fetch(PDO::FETCH_ASSOC)){
             extract($row);
@@ -40,7 +42,7 @@
                 'category_id' => $category_id
             );
 
-        array_push($article_array['data'], $article_item);
+        array_push($article_array['articles'], $article_item);
 
 
         }
@@ -48,10 +50,6 @@
         http_response_code(200);
 
         echo json_encode($article_array);
-
-
-
-
 
 
     } else {

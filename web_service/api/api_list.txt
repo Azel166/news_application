@@ -1,0 +1,23 @@
+
+I. Article api
+* get all article: GET http://localhost/news_application/web_service/api/article/get_all_articles.php
+        Response:
+        [ { "article_id" : "",
+            "title" : "",
+            "short_intro" : "",
+            "author" : "",
+            "content" : "",
+            "date_created" : "",
+            "category_id" : ""
+            },
+            ....
+        ]
+
+
+* get a single article by id: GET http://localhost/news_application/web_service/api/article/get_article.php?id=#
+
+
+* get articles by category id: GET http://localhost/news_application/web_service/api/article/get_articles_by_category.php?id=#
+
+
+* get articles by tag id: GET http://localhost/news_application/web_service/api/article/get_articles_by_tag.php?id=#
