@@ -13,11 +13,32 @@ I. Article api
             ....
         ]
 
-
 * get a single article by id: GET http://localhost/news_application/web_service/api/article/get_article.php?id=#
-
 
 * get articles by category id: GET http://localhost/news_application/web_service/api/article/get_articles_by_category.php?id=#
 
-
 * get articles by tag id: GET http://localhost/news_application/web_service/api/article/get_articles_by_tag.php?id=#
+
+* get related articles of an article: GET http://localhost/news_application/web_service/api/article/get_related_articles.php?id=#
+
+II. Category
+* get all categories: GET http://localhost/news_application/web_service/api/category/get_all_categories.php
+
+III. Comment
+* create comment: POST http://localhost/news_application/web_service/api/comment/create_comment.php
+    Request Body:
+    {
+        "comment": "great lawm luoon",
+        "article_id" : "10",
+        "user_id": "1"
+    }
+    
+* get omment by article id: GET http://localhost/news_application/web_service/api/comment/get_comments_by_article.php?id=#
+
+
+
+IV. Tag
+* get all tags: GET http://localhost/news_application/web_service/api/tag/get_all_tags.php
+
+
+* get tags by article id: GET http://localhost/news_application/web_service/api/tag/get_tags_by_article.php?id=#
