@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="img/favicon.png" type="image/png">
-    <title>le Nouveles - Blog</title>
+    <title>le Nouveles - Lastest News</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/themify-icons.css">
@@ -38,11 +38,11 @@
             <div class="container">
                 <div class="banner_content d-md-flex justify-content-between align-items-center">
                     <div class="mb-3 mb-md-0">
-                        <h2>Blog</h2>
+                        <h2>Lastest News</h2>
                     </div>
                     <div class="page_link">
-                        <a href="index.html">Home</a>
-                        <a href="contact.html">Blog</a>
+                        <a href="index.php">Home</a>
+                        <a href="contact.php">Blog</a>
                     </div>
                 </div>
             </div>

@@ -41,8 +41,8 @@
                         <h2>Blog</h2>
                     </div>
                     <div class="page_link">
-                        <a href="index.html">Home</a>
-                        <a href="contact.html">Blog</a>
+                        <a href="index.php">Home</a>
+                        <a href="contact.php">Blog</a>
                     </div>
                 </div>
             </div>

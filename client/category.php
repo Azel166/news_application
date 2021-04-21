@@ -46,8 +46,8 @@
                         <h2>Category</h2>
                     </div>
                     <div class="page_link">
-                        <a href="index.html">Home</a>
-                        <a href="contact.html">Category</a>
+                        <a href="index.php">Home</a>
+                        <a href="contact.php">Category</a>
                     </div>
                 </div>
             </div>
