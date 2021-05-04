@@ -1,24 +1,22 @@
+<?php
+
+$url = "http://localhost:8080/news_application/web_service/api/category/get_all_categories.php";
+
+$cate = curl_init($url);
+curl_setopt($cate, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($cate);
+
+$result = json_decode($response, true);
+
+?>
 <!doctype html>
 <html lang="en">
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="img/favicon.png" type="image/png">
-    <title>le Nouveles - categories</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="vendors/animate-css/animate.css">
-    <link rel="stylesheet" href="vendors/popup/magnific-popup.css">
-    <!-- main css -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-</head>
+ <!--================ Start head Area =================-->
+ <?php include('includes/head.php'); ?>
+
+<!--================ End head Area =================-->
+
 
 <body>
 
@@ -60,198 +58,23 @@
     <section class="category-page area-padding">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-lg-4">
-                    <div class="single-category">
+            <?php foreach ($result as $key => $value) : ?>
+
+                    <div class="col-md-6 col-lg-4">
+                     <div class="single-category">
                         <div class="thumb">
                             <img class="img-fluid" src="img/category/1.jpg" alt="">
                         </div>
                         <div class="short_details">
-                            <div class="meta-top d-flex">
-                                <a href="#">shoes </a>/
-                                <a href="#"> March 15, 2019</a>
-                            </div>
-                            <a class="d-block" href="single-blog.html">
-                                <h4>Shall for rule whose toge one
-                                    may heaven to dat</h4>
+                            <a class="d-block" href='components/find_by_category.php?id=<?php echo $value['category_id']; ?>'>
+                                <h2 ><?php echo $value['category_name']; ?></h2>
                             </a>
-                            <div class="meta-bottom d-flex">
-                                <a href="#"><i class="ti-comment"></i>05 comment</a>
-                                <a href="#"><i class="ti-heart"></i> 0 like</a>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="single-category">
-                        <div class="thumb">
-                            <img class="img-fluid" src="img/category/2.jpg" alt="">
-                        </div>
-                        <div class="short_details">
-                            <div class="meta-top d-flex">
-                                <a href="#">Fashion </a>/
-                                <a href="#"> March 15, 2019</a>
-                            </div>
-                            <a class="d-block" href="single-blog.html">
-                                <h4>Whose can you're together
-                                    first dominion man</h4>
-                            </a>
-                            <div class="meta-bottom d-flex">
-                                <a href="#"><i class="ti-comment"></i>08 comment</a>
-                                <a href="#"><i class="ti-heart"></i> 0 like</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="single-category">
-                        <div class="thumb">
-                            <img class="img-fluid" src="img/category/3.jpg" alt="">
-                        </div>
-                        <div class="short_details">
-                            <div class="meta-top d-flex">
-                                <a href="#">shoes </a>/
-                                <a href="#"> March 19, 2019</a>
-                            </div>
-                            <a class="d-block" href="single-blog.html">
-                                <h4>Multiply blessed light unto
-                                    green moving</h4>
-                            </a>
-                            <div class="meta-bottom d-flex">
-                                <a href="#"><i class="ti-comment"></i>25 comment</a>
-                                <a href="#"><i class="ti-heart"></i>15 like</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="single-category">
-                        <div class="thumb">
-                            <img class="img-fluid" src="img/category/4.jpg" alt="">
-                        </div>
-                        <div class="short_details">
-                            <div class="meta-top d-flex">
-                                <a href="#">shoes </a>/
-                                <a href="#"> March 15, 2019</a>
-                            </div>
-                            <a class="d-block" href="single-blog.html">
-                                <h4>Given moved air be a male
-                                    earth called multiply</h4>
-                            </a>
-                            <div class="meta-bottom d-flex">
-                                <a href="#"><i class="ti-comment"></i>05 comment</a>
-                                <a href="#"><i class="ti-heart"></i> 10 like</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="single-category">
-                        <div class="thumb">
-                            <img class="img-fluid" src="img/category/5.jpg" alt="">
-                        </div>
-                        <div class="short_details">
-                            <div class="meta-top d-flex">
-                                <a href="#">shoes </a>/
-                                <a href="#"> March 15, 2019</a>
-                            </div>
-                            <a class="d-block" href="single-blog.html">
-                                <h4>Shall for rule whose toge one
-                                    may heaven to dat</h4>
-                            </a>
-                            <div class="meta-bottom d-flex">
-                                <a href="#"><i class="ti-comment"></i>05 comment</a>
-                                <a href="#"><i class="ti-heart"></i> 20 like</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="single-category">
-                        <div class="thumb">
-                            <img class="img-fluid" src="img/category/6.jpg" alt="">
-                        </div>
-                        <div class="short_details">
-                            <div class="meta-top d-flex">
-                                <a href="#">shoes </a>/
-                                <a href="#"> March 15, 2019</a>
-                            </div>
-                            <a class="d-block" href="single-blog.html">
-                                <h4>Given moved air be a male
-                                    earth called multiply</h4>
-                            </a>
-                            <div class="meta-bottom d-flex">
-                                <a href="#"><i class="ti-comment"></i>25 comment</a>
-                                <a href="#"><i class="ti-heart"></i> 0 like</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="single-category">
-                        <div class="thumb">
-                            <img class="img-fluid" src="img/category/7.jpg" alt="">
-                        </div>
-                        <div class="short_details">
-                            <div class="meta-top d-flex">
-                                <a href="#">shoes </a>/
-                                <a href="#"> March 15, 2019</a>
-                            </div>
-                            <a class="d-block" href="single-blog.html">
-                                <h4>Multiply blessed light unto
-                                    green moving</h4>
-                            </a>
-                            <div class="meta-bottom d-flex">
-                                <a href="#"><i class="ti-comment"></i>05 comment</a>
-                                <a href="#"><i class="ti-heart"></i> 0 like</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="single-category">
-                        <div class="thumb">
-                            <img class="img-fluid" src="img/category/8.jpg" alt="">
-                        </div>
-                        <div class="short_details">
-                            <div class="meta-top d-flex">
-                                <a href="#">shoes </a>/
-                                <a href="#"> March 15, 2019</a>
-                            </div>
-                            <a class="d-block" href="single-blog.html">
-                                <h4>Shall for rule whose toge one
-                                    may heaven to dat</h4>
-                            </a>
-                            <div class="meta-bottom d-flex">
-                                <a href="#"><i class="ti-comment"></i>05 comment</a>
-                                <a href="#"><i class="ti-heart"></i> 0 like</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="single-category">
-                        <div class="thumb">
-                            <img class="img-fluid" src="img/category/9.jpg" alt="">
-                        </div>
-                        <div class="short_details">
-                            <div class="meta-top d-flex">
-                                <a href="#">shoes </a>/
-                                <a href="#"> March 15, 2019</a>
-                            </div>
-                            <a class="d-block" href="single-blog.html">
-                                <h4>Given moved air be a male
-                                    earth called multiply</h4>
-                            </a>
-                            <div class="meta-bottom d-flex">
-                                <a href="#"><i class="ti-comment"></i>05 comment</a>
-                                <a href="#"><i class="ti-heart"></i> 0 like</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 text-center">
-                    <a href="" class="main_btn">Load More <span class="ti-angle-double-right"></span></a>
-                </div>
+                <?php endforeach; ?>
+
             </div>
         </div>
     </section>
