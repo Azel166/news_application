@@ -14,7 +14,7 @@ $catResult = json_decode($catResponse, true);
     <ul class="list cat-list">
     <?php foreach ($catResult as $keyCat => $valueCat) : ?>
         <li>
-            <a href="./components/find_by_category.php?id<? echo $valueCat['category_id']; ?>" class="d-flex">
+            <a href="./find_by_category.php?id<? echo $valueCat['category_id']; ?>" class="d-flex">
                 <p><?php echo $valueCat['category_name']; ?></p>
                 <p>(37)</p>
             </a>

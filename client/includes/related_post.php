@@ -19,7 +19,7 @@ $i = 0;
             <div class="media post_item">
                 <img src="img/blog/popular-post/post1.jpg" alt="post">
                 <div class="media-body">
-                    <a href="single-blog.html">
+                    <a href="#">
                         <h3><?php echo $value['title']; ?>.</h3>
                     </a>
                     <p>January 12, 2019</p>

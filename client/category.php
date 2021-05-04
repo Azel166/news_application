@@ -66,7 +66,7 @@ $result = json_decode($response, true);
                             <img class="img-fluid" src="img/category/1.jpg" alt="">
                         </div>
                         <div class="short_details">
-                            <a class="d-block" href='components/find_by_category.php?id=<?php echo $value['category_id']; ?>'>
+                            <a class="d-block" href='find_by_category.php?id=<?php echo $value['category_id']; ?>'>
                                 <h2 ><?php echo $value['category_name']; ?></h2>
                             </a>
                            
