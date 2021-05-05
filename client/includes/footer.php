@@ -19,7 +19,7 @@
                 </div>
             </div>
 
-            
+
 
             <div class="col-lg-4 col-sm-6 col-md-6 mb-4 mb-xl-0 single-footer-widget">
                 <h4>Newsletter</h4>
@@ -48,5 +48,22 @@
         <div class="footer-bottom row align-items-center text-center text-lg-left no-gutters">
             <p class="footer-text m-0 col-lg-8 col-md-12">
                 Copyright &copy;<script>
-                    document.write(new Date().getFullYear()); 
-                       
+                    document.write(new Date().getFullYear());
+                </script>
+</footer>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/stellar.js"></script>
+<script src="vendors/popup/jquery.magnific-popup.min.js"></script>
+<script src="js/jquery.ajaxchimp.min.js"></script>
+<script src="js/waypoints.min.js"></script>
+<script src="js/mail-script.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/jquery.form.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/mail-script.js"></script>
+<script src="js/theme.js"></script>
