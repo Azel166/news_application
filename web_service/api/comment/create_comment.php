@@ -20,7 +20,7 @@ $data = json_decode(file_get_contents("php://input"));
 
 $comment->comment = $data->comment;
 $comment->article_id = $data->article_id;
-$comment->user_id = $data->user_id;
+$comment->email = $data->email;
 
 if ($comment->createComment()){
     http_response_code(201);

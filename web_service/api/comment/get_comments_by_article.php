@@ -32,7 +32,7 @@
                 'comment_id' => $comment_id,
                 'comment' => $comment,
                 'article_id' => $article_id,
-                'user_id' => $user_id
+                'email' => $email
                 
             );
 

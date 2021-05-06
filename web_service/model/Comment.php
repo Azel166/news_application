@@ -9,7 +9,7 @@ class Comment{
     public $comment_id;
     public $comment;
     public $article_id;
-    public $user_id;
+    public $email;
 
 
     public function __construct($db){
@@ -20,17 +20,17 @@ class Comment{
     // create a new comment
     public function createComment(){
         $query = 'INSERT INTO '.$this->table.
-        ' SET comment =:comment, article_id =:article_id, user_id=:user_id';
+        ' SET comment =:comment, article_id =:article_id, email=:email';
 
         $ps = $this->connection->prepare($query);
 
         $this->comment = htmlspecialchars(strip_tags($this->comment));
         $this->article_id = htmlspecialchars(strip_tags($this->article_id));
-        $this->user_id = htmlspecialchars(strip_tags($this->user_id));
+        $this->email = htmlspecialchars(strip_tags($this->email));
 
         $ps->bindParam(':comment', $this->comment);
         $ps->bindParam(':article_id', $this->article_id);
-        $ps->bindParam(':user_id', $this->user_id);
+        $ps->bindParam(':email', $this->email);
 
         if($ps->execute()){
             return true;
