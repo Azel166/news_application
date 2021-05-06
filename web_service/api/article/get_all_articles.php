@@ -32,6 +32,7 @@
                 'article_id' => $article_id,
                 'title' => $title,
                 'short_intro' => $short_intro,
+                'image' => $image,
                 'content' => $content,
                 'date_created' => $date_created,
                 'author' => $author,
