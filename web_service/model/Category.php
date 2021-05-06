@@ -7,6 +7,7 @@ private $table = "category";
 
 public $category_id;
 public $category_name;
+public $image;
 
 
 public function __construct($db){

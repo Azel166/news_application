@@ -8,6 +8,7 @@ private $table = "article";
 public $article_id;
 public $title;
 public $short_intro;
+public $image;
 public $author;
 public $content;
 public $category_id;
@@ -88,6 +89,7 @@ public function getArticle($article_id){
     $this->article_id = $row['article_id'];
     $this->title = $row['title'];
     $this->short_intro = $row['short_intro'];
+    $this->image = $row['image'];
     $this->author = $row['author'];
     $this->content = $row['content'];
     $this->date_created = $row['date_created'];
