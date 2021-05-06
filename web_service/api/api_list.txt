@@ -5,6 +5,7 @@ I. Article api
         [ { "article_id" : "",
             "title" : "",
             "short_intro" : "",
+            "image" : "",
             "author" : "",
             "content" : "",
             "date_created" : "",
@@ -33,7 +34,7 @@ III. Comment
         "user_id": "1"
     }
     
-* get omment by article id: GET http://localhost/news_application/web_service/api/comment/get_comments_by_article.php?id=#
+* get comment by article id: GET http://localhost/news_application/web_service/api/comment/get_comments_by_article.php?id=#
 
 
 
