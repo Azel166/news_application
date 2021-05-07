@@ -17,7 +17,7 @@ $i = 0;
 
     <?php foreach ($article_array as $keyA => $valueA) : ?>
         <div class="media post_item">
-            <img src="img/blog/popular-post/post1.jpg" alt="post">
+            <img src="img/articles/<?php echo $value['image']; ?>" alt="post" width="70" height="50">
             <div class="media-body">
                 <a href="#">
                     <h3><?php echo $value['title']; ?>.</h3>
