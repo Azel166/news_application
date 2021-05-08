@@ -20,7 +20,7 @@
                         <!-- <li class="nav-item"><a class="nav-link" href="single-blog.php">Blog Details</a></li> -->
                         <!-- </ul> -->
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="newest.php">Latest news</a></li>
+                        <li class="nav-item"><a class="nav-link" href="all_news.php">All news</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact.php">Contact us</a></li>
                     </ul>
                 </div>

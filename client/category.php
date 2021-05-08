@@ -63,11 +63,11 @@ $result = json_decode($response, true);
                     <div class="col-md-6 col-lg-4">
                      <div class="single-category">
                         <div class="thumb">
-                            <img class="img-fluid" src="img/category/1.jpg" alt="">
+                            <img class="img-fluid" src="img/category/<?php echo $value['image']; ?>" alt="">
                         </div>
-                        <div class="short_details">
+                        <div class="short_details text-center">
                             <a class="d-block" href='find_by_category.php?id=<?php echo $value['category_id']; ?>'>
-                                <h2 ><?php echo $value['category_name']; ?></h2>
+                                <h3><?php echo $value['category_name']; ?></h3>
                             </a>
                            
                         </div>

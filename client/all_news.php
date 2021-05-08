@@ -1,16 +1,19 @@
 <?php
+if (!isset($_GET['page'])) {
+    $page = 1;
+} else {
+    $page = $_GET['page'];
+}
 
+$url = "http://localhost:8080/news_application/web_service/api/article/get_all_articles.php";
 
-$article_array = array();
-foreach ($result as $key => $value) :
-    $category_id = $_GET['category_id'];
-    $relatedUrl = "http://localhost:8080/news_application/web_service/api/article/get_articles_by_category.php?id=$category_id";
-    $articleRelated = curl_init($relatedUrl);
-    curl_setopt($articleRelated, CURLOPT_RETURNTRANSFER, true);
-    $responseR = curl_exec($articleRelated);
-    $resultR = json_decode($responseR, true);
-    $article_array = array_merge($article_array, $resultR);
-endforeach;
+$news = curl_init($url);
+curl_setopt($news, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($news);
+
+$result = json_decode($response, true);
+$total_page = $result[0]['total_page'];
+
 ?>
 
 <!doctype html>
@@ -59,7 +62,7 @@ endforeach;
             <div class="row">
                 <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="blog_left_sidebar">
-                        <?php foreach ($article_array as $key => $value) : ?>
+                        <?php foreach ($result as $key => $value) : ?>
                             <article class="blog_item">
                                 <div class="blog_item_img">
                                     <img class="card-img rounded-0" src="img/articles/<?php echo $value['image']; ?>" alt="">
