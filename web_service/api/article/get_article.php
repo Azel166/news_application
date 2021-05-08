@@ -26,7 +26,7 @@
         
         'title' => $article->title,
         'short_intro' => $article->short_intro,
-        'image' => $image,
+        'image' => $article->image,
         'content' => $article->content,
         'date_created' => $article->date_created,
         'author' => $article->author,
