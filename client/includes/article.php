@@ -1,10 +1,12 @@
+
+
 <?php
 $article_id = $_GET['article_id'];
-$url = 'http://localhost:8080/news_application/web_service/api/article/get_article.php?id=$article_id';
+$url = 'http://localhost:8080/news_application/web_service/api/article/get_article.php?id='.$article_id;
 
-$article = curl_init($url);
-curl_setopt($article, CURLOPT_RETURNTRANSFER, true);
-$response = curl_exec($article);
+$news = curl_init($url);
+curl_setopt($news, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($news);
 
 $result = json_decode($response, true);
 
