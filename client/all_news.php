@@ -80,7 +80,7 @@ $total_page = $result[0]['total_page'];
                                 </div>
 
                                 <div class="blog_details">
-                                    <a class="d-inline-block" href='single_article.php?id=<?php echo $value['article_id']; ?>'>
+                                    <a class="d-inline-block" href='single_article.php?article_id=<?php echo $value['article_id']; ?>'>
                                         <h2><?php echo $value['title']; ?></p>
                                         </h2>
                                     </a>

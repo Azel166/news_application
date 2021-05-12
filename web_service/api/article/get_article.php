@@ -16,7 +16,7 @@
 
     $article = new Article($db);
 
-    $article_id = (isset($_GET['id'])) ? $_GET['id'] : die(); 
+    $article_id = (isset($_GET['article_id'])) ? $_GET['article_id'] : die(); 
 
     
     $article->getArticle($article_id);

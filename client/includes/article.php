@@ -1,8 +1,6 @@
-
-
 <?php
 $article_id = $_GET['article_id'];
-$url = 'http://localhost:8080/news_application/web_service/api/article/get_article.php?id='.$article_id;
+$url = 'http://localhost:8080/news_application/web_service/api/article/get_article.php?article_id=' . $article_id;
 
 $news = curl_init($url);
 curl_setopt($news, CURLOPT_RETURNTRANSFER, true);
@@ -24,30 +22,18 @@ $result = json_decode($response, true);
                     <div class="blog_details">
                         <h2><?php echo $result['title']; ?></h2>
                         <ul class="blog-info-link mt-3 mb-4">
-                            <li><a href="#"><i class="far fa-user"></i> Travel, Lifestyle</a></li>
+                            <li><a href="#"><i class="far fa-user"></i> <?php echo $result['category_name']; ?></a></li>
                             <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>
                         </ul>
-                        <p class="excert">
-                            MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower
-
-                        </p>
-                        <p>
-                            MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training. who has the willpower to actually
-                        </p>
                         <div class="quote-wrapper">
                             <div class="quotes">
-                                MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training.
+                                <?php echo $result['title']; ?>
                             </div>
                         </div>
+                            <p class="excert"><?php echo $result['content']; ?></p>
 
+                 
 
-                        <p>
-                            MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower
-
-                        </p>
-                        <p>
-                            MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training. who has the willpower to actually
-                        </p>
                     </div>
                 </div>
                 <div class="navigation-top">
