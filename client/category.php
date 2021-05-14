@@ -8,6 +8,7 @@ $response = curl_exec($cate);
 
 $result = json_decode($response, true);
 
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -66,7 +67,7 @@ $result = json_decode($response, true);
                             <img class="img-fluid" src="img/category/<?php echo $value['image']; ?>" alt="">
                         </div>
                         <div class="short_details text-center">
-                            <a class="d-block" href='find_by_category.php?id=<?php echo $value['category_id']; ?>'>
+                            <a class="d-block" href='news_by_category.php?id=<?php echo $value['category_id']; ?>'>
                                 <h3><?php echo $value['category_name']; ?></h3>
                             </a>
                            

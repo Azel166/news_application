@@ -15,7 +15,7 @@ $tagListResult = json_decode($tagListResponse, true);
         <?php foreach ($tagListResult as $keyTag => $valueTag) : ?>
 
             <li>
-                <a  href="./components/find_by_tag.php?id<? echo $valueTag['tag_id']; ?>"><?php echo $valueTag['tag']; ?></a>
+                <a  href="./components/news_by_tag.php?id<? echo $valueTag['tag_id']; ?>"><?php echo $valueTag['tag']; ?></a>
             </li>
             <?php if (++$i == 10) break; ?>
 

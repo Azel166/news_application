@@ -16,7 +16,7 @@
     $article = new Article($db);
 
 
-    $category_id = isset($_GET['id']) ? htmlspecialchars(strip_tags($_GET['id'])) : die();
+    $category_id = isset($_GET['category_id']) ? htmlspecialchars(strip_tags($_GET['category_id'])) : die();
     // Article query
     $result = $article->getArticlesByCategory($category_id);
 

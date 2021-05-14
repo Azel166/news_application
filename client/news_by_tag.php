@@ -1,16 +1,18 @@
 <?php
 
+$tag_id = $_GET['tag_id'];
+$urlTag = 'http://localhost:8080/news_application/web_service/api/article/get_articles_by_category.php?tag_id='.$tag_id;
 
-$article_array = array();
-foreach ($result as $key => $value) :
-    $category_id = $_GET['category_id'];
-    $relatedUrl = "http://localhost:8080/news_application/web_service/api/article/get_articles_by_category.php?id=$category_id";
-    $articleRelated = curl_init($relatedUrl);
-    curl_setopt($articleRelated, CURLOPT_RETURNTRANSFER, true);
-    $responseR = curl_exec($articleRelated);
-    $resultR = json_decode($responseR, true);
-    $article_array = array_merge($article_array, $resultR);
-endforeach;
+$newsTag = curl_init($urlTag);
+curl_setopt($newsCate, CURLOPT_RETURNTRANSFER, true);
+$responseTag = curl_exec($newsTag);
+
+$resultTag = json_decode($responseTag, true);
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 ?>
 
 <!doctype html>
@@ -59,12 +61,12 @@ endforeach;
             <div class="row">
                 <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="blog_left_sidebar">
-                        <?php foreach ($article_array as $key => $value) : ?>
+                        <?php foreach ($resultCate as $keyC => $valueC) : ?>
                             <article class="blog_item">
                                 <div class="blog_item_img">
-                                    <img class="card-img rounded-0" src="img/articles/<?php echo $value['image']; ?>" alt="">
+                                    <img class="card-img rounded-0" src="img/articles/<?php echo $valueC['image']; ?>" alt="">
                                     <a href="#" class="blog_item_date">
-                                        <?php $date = strtotime($value['date_created']); ?>
+                                        <?php $date = strtotime($valueC['date_created']); ?>
                                         <?php
                                         $day = date('d', $date);
                                         $mon_num = date('m', $date);
@@ -78,7 +80,7 @@ endforeach;
 
                                 <div class="blog_details">
                                     <a class="d-inline-block" href='single_article.php?id=<?php echo $value['article_id']; ?>'>
-                                        <h2><?php echo $value['title']; ?></p>
+                                        <h2><?php echo $valueC['title']; ?></p>
                                         </h2>
                                     </a>
                                     <p><?php echo $value['short_intro']; ?></p>

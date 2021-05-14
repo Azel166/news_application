@@ -1,62 +1,50 @@
 <?php
 
-    header('Access-Control-Allow-Origin: *');
-    header('Content-Type: application/json; charset=UTF-8');
-    
-    include_once '../../config/Database.php';
-    include_once '../../model/Comment.php';
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json; charset=UTF-8');
 
-    // instantiate DB & connect
-    $database = new Database();
+include_once '../../config/Database.php';
+include_once '../../model/Comment.php';
 
-    $db = $database->connect();
+// instantiate DB & connect
+$database = new Database();
 
-    $comment = new Comment($db);
+$db = $database->connect();
 
-    $article_id = isset($_GET['id']) ? htmlspecialchars(strip_tags($_GET['id'])) : die();
+$comment = new Comment($db);
 
-    $result = $comment->getCommentsByArticle($article_id);
+$article_id = (isset($_GET['article_id'])) ? $_GET['article_id'] : die();
 
-    $num = $result->rowCount();
+$result = $comment->getCommentsByArticle($article_id);
 
-    if ($num > 0) {
-        $comment_array = array();
-        $comment_array['article_id'] = $article_id;
-        $comment_array['comments'] = array();
-        
+$num = $result->rowCount();
 
-        while ($row = $result->fetch(PDO::FETCH_ASSOC)){
-            extract($row);
+if ($num > 0) {
+    $comment_array = array();
+    $comment_array['article_id'] = $article_id;
+    $comment_array['comments'] = array();
 
-            $comment_item = array(
-                'comment_id' => $comment_id,
-                'comment' => $comment,
-                'article_id' => $article_id,
-                'email' => $email
-                
-            );
+
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        extract($row);
+
+        $comment_item = array(
+            'comment_id' => $comment_id,
+            'comment' => $comment,
+            'article_id' => $article_id,
+            'email' => $email
+
+        );
 
         array_push($comment_array['comments'], $comment_item);
-
-
-        }
-
-        http_response_code(200);
-
-        echo json_encode($comment_array);
-
-
-
-
-
-
-    } else {
-        echo json_encode(
-			array('message' => 'no comment found')
-
-		);
-
     }
 
+    http_response_code(200);
 
-?>
+    echo json_encode($comment_array);
+} else {
+    echo json_encode(
+        array('message' => 'no comment found')
+
+    );
+}
