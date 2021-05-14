@@ -10,6 +10,7 @@ class Comment{
     public $comment;
     public $article_id;
     public $email;
+    public $time;
 
 
     public function __construct($db){
@@ -27,6 +28,8 @@ class Comment{
         $this->comment = htmlspecialchars(strip_tags($this->comment));
         $this->article_id = htmlspecialchars(strip_tags($this->article_id));
         $this->email = htmlspecialchars(strip_tags($this->email));
+        $this->time = htmlspecialchars(strip_tags($this->time));
+
 
         $ps->bindParam(':comment', $this->comment);
         $ps->bindParam(':article_id', $this->article_id);

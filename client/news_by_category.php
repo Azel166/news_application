@@ -1,19 +1,25 @@
 <?php
 
 $category_id = $_GET['category_id'];
-$urlCate = 'http://localhost:8080/news_application/web_service/api/article/get_articles_by_category.php?category_id='.$category_id;
+$curl = curl_init();
+curl_setopt_array($curl, array(
+    CURLOPT_RETURNTRANSFER => 0,
+    CURLOPT_URL => 'http://localhost:8080/news_application/web_service/api/article/get_articles_by_category.php?category_id=$category_id',
+    CURLOPT_USERAGENT => 'News by category',
+    CURLOPT_SSL_VERIFYPEER => false
+));
 
-$newsCate = curl_init($urlCate);
-curl_setopt($newsCate, CURLOPT_RETURNTRANSFER, true);
-$responseCate = curl_exec($newsCate);
+$resp = curl_exec($curl);
 
-$resultCate = json_decode($responseCate, true);
+//Dữ liệu ở dạng JSON
+$data = json_decode($resp);
+var_dump($data);
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+curl_close($curl);
+
 
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -61,7 +67,7 @@ error_reporting(E_ALL);
             <div class="row">
                 <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="blog_left_sidebar">
-                        <?php foreach ($resultCate as $keyC => $valueC) : ?>
+                        <?php foreach ($data as $keyC => $valueC) : ?>
                             <article class="blog_item">
                                 <div class="blog_item_img">
                                     <img class="card-img rounded-0" src="img/articles/<?php echo $valueC['image']; ?>" alt="">

@@ -19,10 +19,11 @@ $result = $comment->getCommentsByArticle($article_id);
 
 $num = $result->rowCount();
 
+
 if ($num > 0) {
     $comment_array = array();
-    $comment_array['article_id'] = $article_id;
-    $comment_array['comments'] = array();
+    // $comment_array['article_id'] = $article_id;
+    // $comment_array['comments'] = array();
 
 
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
@@ -32,11 +33,12 @@ if ($num > 0) {
             'comment_id' => $comment_id,
             'comment' => $comment,
             'article_id' => $article_id,
-            'email' => $email
+            'email' => $email,
+            'time' =>$time
 
         );
 
-        array_push($comment_array['comments'], $comment_item);
+        array_push($comment_array, $comment_item);
     }
 
     http_response_code(200);

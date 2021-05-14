@@ -1,44 +1,52 @@
 <?php
 $article_id = $_GET['article_id'];
-$cmtUrl = "http://localhost:8080/news_application/web_service/api/comment/get_comments_by_article.php?article_id=".$article_id;
+$url = 'http://localhost:8080/news_application/web_service/api/comment/get_comments_by_article.php?article_id=' . $article_id;
 
-$cmt = curl_init($cmtUrl);
-curl_setopt($cmt, CURLOPT_RETURNTRANSFER, true);
-$cmtResponse = curl_exec($cmt);
+$tag = curl_init($url);
+curl_setopt($tag, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($tag);
 
-$cmtResult = json_decode($cmtResponse, true);
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+$result = json_decode($response, true);
+
 
 ?>
 
 <div class="comments-area">
-<h4>All Comments</h4>
-
+    <h4>All Comments</h4>
     <?php
-    if ($cmtResult['message'] ?? NULL) {
-        echo $cmtResult['message'];
+    if ($result['message'] ?? NULL) {
+        echo $result['message'];
     } else {
-          foreach ($cmtResult as $cmtkey => $cmtValue) :
+        foreach ($result as $key => $value) :
     ?>
+
             <div class="comment-list">
                 <div class="single-comment justify-content-between d-flex">
                     <div class="user justify-content-between d-flex">
                         <div class="thumb">
-                            <img src="img/blog/c1.png" alt="">
+                            <img src="img/cmt.png" alt="">
                         </div>
                         <div class="desc">
                             <p class="comment">
-                                Multiply sea night grass fourth day sea lesser rule open subdue female fill which them Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
+                                <?php echo $value['comment'] ?>
                             </p>
 
                             <div class="d-flex justify-content-between">
                                 <div class="d-flex align-items-center">
                                     <h5>
-                                        <a href="#"><?php echo $cmtValue['email'] ?></a>
+                                        <a href="#"><?php echo $value['email'] ?></a>
                                     </h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
+                                    <?php $date = strtotime($value['time']); ?>
+                                    <?php
+                                    $day = date('d', $date);
+                                    $mon_num = date('m', $date);
+                                    $mon = date("F", mktime(0, 0, 0, $mon_num, 10));
+                                    $yr = date('Y', $date);
+                                    $hour = date("h");
+                                    $minute = date("i");
+                                    ?>
+
+                                    <p class="date"><?php echo  $day, ' ', $mon, ' ', $yr, ' at ', $hour, ': ', $minute  ?> </p>
                                 </div>
 
                                 <div class="reply-btn">
@@ -50,6 +58,7 @@ error_reporting(E_ALL);
                     </div>
                 </div>
             </div>
+
     <?php
         endforeach;
     } ?>
