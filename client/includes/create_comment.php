@@ -1,31 +1,20 @@
-<div class="comment-form">
-    <h4>Leave a Reply</h4>
-    <form class="form-contact comment_form" action="#" id="commentForm">
-        <div class="row">
-            <div class="col-12">
-                <div class="form-group">
-                    <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9" placeholder="Write Comment"></textarea>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <input class="form-control" name="name" id="name" type="text" placeholder="Name">
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <input class="form-control" name="email" id="email" type="email" placeholder="Email">
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="form-group">
-                    <input class="form-control" name="website" id="website" type="text" placeholder="Website">
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="button button-contactForm">Send Message</button>
-        </div>
-    </form>
-</div>
-</div>
+
+<?php
+  $data = array('email' => $_POST['email'], 'comment' => $_POST['comment'], 'article_id' => $_POST['article_id'],'time' => $_POST['time'] );
+  $data_string = json_encode($data);
+  $article_id= $_POST['article_id'];
+    $curl = curl_init('http://localhost:8080/news_application/web_service/api/comment/create_comment.php');
+    
+    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+        'Content-Type: application/json',
+        'Content-Length: ' . strlen($data_string))
+    );
+    
+    $response = curl_exec($curl);
+    echo $data_string, $response;
+    curl_close($curl);
+    header("Location: http://localhost:8080/news_application/client/single_article.php??article_id={$article_id}");
+    ?>

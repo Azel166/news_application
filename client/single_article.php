@@ -45,7 +45,7 @@
                     <?php include('includes/all_comments.php'); ?>
                     
                     <!--================ Create Comment  =================-->
-                    <?php include('includes/create_comment.php'); ?>
+                    <?php include('includes/comment_form.php'); ?>
 
                     <!--================ Right Side Bar =================-->
                     <?php include('includes/right_side_bar.php'); ?>

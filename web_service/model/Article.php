@@ -22,7 +22,20 @@ public function __construct($db){
 //
 public function getAllArticles(){
 
+
     $query = 'SELECT * FROM '.$this->table;
+
+    $ps = $this->connection->prepare($query);
+
+    $ps->execute();
+
+    return $ps;
+
+}
+public function getRecentArticles(){
+
+
+    $query = 'SELECT * FROM '.$this->table. ' ORDER BY date_created DESC;';
 
     $ps = $this->connection->prepare($query);
 
@@ -33,7 +46,7 @@ public function getAllArticles(){
 }
 
 public function getArticlesByCategory($category_id){
-    $tag_id = htmlspecialchars(strip_tags($category_id));
+    $category_id = htmlspecialchars(strip_tags($category_id));
     $query = 'SELECT * FROM '.$this->table.' WHERE category_id = '.$category_id;
 
     // prepare statements

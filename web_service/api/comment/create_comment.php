@@ -21,6 +21,8 @@ $data = json_decode(file_get_contents("php://input"));
 $comment->comment = $data->comment;
 $comment->article_id = $data->article_id;
 $comment->email = $data->email;
+$comment->time = $data->time;
+
 
 if ($comment->createComment()){
     http_response_code(201);

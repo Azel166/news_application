@@ -34,6 +34,8 @@ class Comment{
         $ps->bindParam(':comment', $this->comment);
         $ps->bindParam(':article_id', $this->article_id);
         $ps->bindParam(':email', $this->email);
+        $ps->bindParam(':time', $this->time);
+
 
         if($ps->execute()){
             return true;

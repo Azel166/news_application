@@ -1,3 +1,15 @@
+<?php
+$url = "http://localhost:8080/news_application/web_service/api/article/get_all_recent_articles.php";
+
+$news = curl_init($url);
+curl_setopt($news, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($news);
+
+$result = json_decode($response, true);
+$i = 0;
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -23,6 +35,7 @@
     <section class="fullwidth-block area-padding-bottom">
         <div class="container-fluid">
             <div class="row">
+
                 <div class="col-md-6 col-lg-6 col-xl-5">
                     <div class="single-blog">
                         <div class="thumb">
@@ -33,8 +46,7 @@
                                 <a href="#">Tours & Travel</a>
                             </div>
                             <a class="d-block" href="single-blog.html">
-                                <h4>Created face stars sixth forth fow
-                                Earth firmament meat</h4>
+                                <h4><?php echo $result['title']; ?></h4>
                             </a>
                             <div class="meta-bottom d-flex" >
                                 <a href="#">March 12 , 2019 . </a>
@@ -55,8 +67,7 @@
                                 <a href="#">Tours & Travel</a>
                             </div>
                             <a class="d-block" href="single-blog.html">
-                                <h4>Created face stars sixth forth fow
-                                Earth firmament meat</h4>
+                                <h4><?php echo $result['title']; ?></h4>
                             </a>
                             <div class="meta-bottom d-flex justify-content-center">
                                 <a href="#">March 12 , 2019 . </a>
@@ -79,7 +90,7 @@
                                         <a href="#">Lifestyle</a>
                                     </div>
                                     <a class="d-block" href="single-blog.html">
-                                        <h4>The abundantly brought after day fish there image</h4>
+                                        <h4><?php echo $result['title']; ?></h4>
                                     </a>
                                 </div>
                             </div>
@@ -96,11 +107,13 @@
                                         <a href="#">Lifestyle</a>
                                     </div>
                                     <a class="d-block" href="single-blog.html">
-                                        <h4>The abundantly brought after day fish there image</h4>
+                                        <h4><?php echo $result['title']; ?></h4>
                                     </a>
                                 </div>
                             </div>    
                         </div>
+                    
+
                     </div>
 
                 </div>
