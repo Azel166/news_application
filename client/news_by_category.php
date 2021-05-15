@@ -1,21 +1,17 @@
 <?php
 
 $category_id = $_GET['category_id'];
-$curl = curl_init();
-curl_setopt_array($curl, array(
-    CURLOPT_RETURNTRANSFER => 0,
-    CURLOPT_URL => 'http://localhost:8080/news_application/web_service/api/article/get_articles_by_category.php?category_id=$category_id',
-    CURLOPT_USERAGENT => 'News by category',
-    CURLOPT_SSL_VERIFYPEER => false
-));
+$urlCate = 'http://localhost:8080/news_application/web_service/api/article/get_articles_by_category.php?category_id='.$category_id;
 
-$resp = curl_exec($curl);
+$newsCate = curl_init($urlCate);
+curl_setopt($newsCate, CURLOPT_RETURNTRANSFER, true);
+$responseCate = curl_exec($newsCate);
 
-//Dữ liệu ở dạng JSON
-$data = json_decode($resp);
-var_dump($data);
+$resultCate = json_decode($responseCate, true);
 
-curl_close($curl);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 
 ?>
@@ -67,7 +63,7 @@ curl_close($curl);
             <div class="row">
                 <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="blog_left_sidebar">
-                        <?php foreach ($data as $keyC => $valueC) : ?>
+                        <?php foreach ($resultCate as $keyC => $valueC) : ?>
                             <article class="blog_item">
                                 <div class="blog_item_img">
                                     <img class="card-img rounded-0" src="img/articles/<?php echo $valueC['image']; ?>" alt="">
@@ -85,14 +81,13 @@ curl_close($curl);
                                 </div>
 
                                 <div class="blog_details">
-                                    <a class="d-inline-block" href='single_article.php?id=<?php echo $value['article_id']; ?>'>
+                                    <a class="d-inline-block" href='single_article.php?article_id=<?php echo $valueC['article_id']; ?>'>
                                         <h2><?php echo $valueC['title']; ?></p>
                                         </h2>
                                     </a>
-                                    <p><?php echo $value['short_intro']; ?></p>
+                                    <p><?php echo $valueC['short_intro']; ?></p>
                                     <ul class="blog-info-link">
-                                        <li><a href="#"><i class="far fa-user"></i> <?php echo $value['category_name']; ?></a></li>
-                                        <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>
+                                        <li><a href="#"><i class="far fa-user"></i> <?php echo $valueC['author']; ?></a></li>
                                     </ul>
                                 </div>
                             </article>
@@ -102,26 +97,7 @@ curl_close($curl);
                         <!--================ Pagination =================-->
 
 
-                        <nav class="blog-pagination justify-content-center d-flex">
-                            <ul class="pagination">
-                                <li class="page-item">
-                                    <a href="#" class="page-link" aria-label="Previous">
-                                        <i class="ti-angle-left"></i>
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a href="#" class="page-link">1</a>
-                                </li>
-                                <li class="page-item active">
-                                    <a href="#" class="page-link">2</a>
-                                </li>
-                                <li class="page-item">
-                                    <a href="#" class="page-link" aria-label="Next">
-                                        <i class="ti-angle-right"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
+                        
                     </div>
                 </div>
 

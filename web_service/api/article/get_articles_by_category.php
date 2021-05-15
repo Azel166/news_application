@@ -24,9 +24,9 @@
 
     if ($num > 0){
 
+        // $article_array = array();
+        // $article_array['category_id'] = $category_id;
         $article_array = array();
-        $article_array['category_id'] = $category_id;
-        $article_array['articles'] = array();
      
 
         while ($row = $result->fetch(PDO::FETCH_ASSOC)){
@@ -43,7 +43,7 @@
                 'category_id' => $category_id
             );
 
-        array_push($article_array['articles'], $article_item);
+        array_push($article_array, $article_item);
 
 
         }

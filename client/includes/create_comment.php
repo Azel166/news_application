@@ -16,5 +16,5 @@
     $response = curl_exec($curl);
     echo $data_string, $response;
     curl_close($curl);
-    header("Location: http://localhost:8080/news_application/client/single_article.php??article_id={$article_id}");
+    header("Location: http://localhost:8080/news_application/client/single_article.php?article_id={$article_id}");
     ?>
