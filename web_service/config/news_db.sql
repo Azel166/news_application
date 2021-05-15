@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 05, 2021 lúc 10:11 AM
--- Phiên bản máy phục vụ: 10.4.16-MariaDB
--- Phiên bản PHP: 7.4.12
+-- Máy chủ: localhost
+-- Thời gian đã tạo: Th5 15, 2021 lúc 09:00 PM
+-- Phiên bản máy phục vụ: 10.4.18-MariaDB
+-- Phiên bản PHP: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `iws-dbs`
+-- Cơ sở dữ liệu: `news_db`
 --
 
 -- --------------------------------------------------------
@@ -32,7 +32,7 @@ CREATE TABLE `article` (
   `title` varchar(500) NOT NULL,
   `short_intro` varchar(1000) NOT NULL,
   `author` varchar(1000) NOT NULL,
-  `content` longtext NOT NULL,
+  `content` text NOT NULL,
   `date_created` date NOT NULL,
   `category_id` int(11) NOT NULL,
   `image` varchar(200) NOT NULL
@@ -230,16 +230,16 @@ CREATE TABLE `category` (
 -- Đang đổ dữ liệu cho bảng `category`
 --
 
-INSERT INTO `category` (`category_id`, `category_name`) VALUES
-(1, 'Health'),
-(2, 'Business'),
-(3, 'Politics'),
-(4, 'Entertainment'),
-(5, 'Style'),
-(6, 'Travel'),
-(7, 'Sport'),
-(8, 'Technology'),
-(9, 'Science');
+INSERT INTO `category` (`category_id`, `category_name`, `image`) VALUES
+(1, 'Health', 'cate1.jpg'),
+(2, 'Business', 'cate2.jpg'),
+(3, 'Politics', 'cate3.jpg'),
+(4, 'Entertainment', 'cate4.jpg'),
+(5, 'Style', 'cate5.jpg'),
+(6, 'Travel', 'cate6.jpg'),
+(7, 'Sport', 'cate7.jpg'),
+(8, 'Technology', 'cate8.jpg'),
+(9, 'Science', 'cate9.jpg');
 
 -- --------------------------------------------------------
 
@@ -251,6 +251,7 @@ CREATE TABLE `comment` (
   `comment_id` int(11) NOT NULL,
   `comment` varchar(1000) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `time` datetime NOT NULL,
   `article_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -258,8 +259,9 @@ CREATE TABLE `comment` (
 -- Đang đổ dữ liệu cho bảng `comment`
 --
 
-INSERT INTO `comment` (`comment_id`, `comment`, `email`, `article_id`) VALUES
-(1, 'So terrible', 'anh@gmail.com', 1);
+INSERT INTO `comment` (`comment_id`, `comment`, `email`, `time`, `article_id`) VALUES
+(1, 'So terrible', 'anh@gmail.com', '2021-05-04 04:12:30', 1),
+(2, 'huhu', 'nan312@gmail.com', '2021-05-14 04:12:42', 1);
 
 -- --------------------------------------------------------
 
