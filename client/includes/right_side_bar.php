@@ -22,7 +22,7 @@
 
                         <!--================ Recent Posts List =================-->
 
-                        <?php include('related_post.php'); ?>
+                        <!-- <?php include('related_post.php'); ?> -->
 
 
                         <!--================ Tag List =================-->

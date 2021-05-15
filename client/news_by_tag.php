@@ -1,10 +1,10 @@
 <?php
 
 $tag_id = $_GET['tag_id'];
-$urlTag = 'http://localhost:8080/news_application/web_service/api/article/get_articles_by_category.php?tag_id='.$tag_id;
+$urlTag = 'http://localhost:8080/news_application/web_service/api/article/get_articles_by_tag.php?tag_id='.$tag_id;
 
 $newsTag = curl_init($urlTag);
-curl_setopt($newsCate, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($newsTag, CURLOPT_RETURNTRANSFER, true);
 $responseTag = curl_exec($newsTag);
 
 $resultTag = json_decode($responseTag, true);
@@ -61,7 +61,7 @@ error_reporting(E_ALL);
             <div class="row">
                 <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="blog_left_sidebar">
-                        <?php foreach ($resultCate as $keyC => $valueC) : ?>
+                        <?php foreach ($resultTag as $keyC => $valueC) : ?>
                             <article class="blog_item">
                                 <div class="blog_item_img">
                                     <img class="card-img rounded-0" src="img/articles/<?php echo $valueC['image']; ?>" alt="">
@@ -79,14 +79,13 @@ error_reporting(E_ALL);
                                 </div>
 
                                 <div class="blog_details">
-                                    <a class="d-inline-block" href='single_article.php?id=<?php echo $value['article_id']; ?>'>
+                                    <a class="d-inline-block" href='single_article.php?article_id=<?php echo $valueC['article_id']; ?>'>
                                         <h2><?php echo $valueC['title']; ?></p>
                                         </h2>
                                     </a>
-                                    <p><?php echo $value['short_intro']; ?></p>
+                                    <p><?php echo $valueC['short_intro']; ?></p>
                                     <ul class="blog-info-link">
-                                        <li><a href="#"><i class="far fa-user"></i> <?php echo $value['category_name']; ?></a></li>
-                                        <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>
+                                        <li><a href="#"><i class="far fa-user"></i> <?php echo $valueC['author']; ?></a></li>
                                     </ul>
                                 </div>
                             </article>
@@ -96,26 +95,7 @@ error_reporting(E_ALL);
                         <!--================ Pagination =================-->
 
 
-                        <nav class="blog-pagination justify-content-center d-flex">
-                            <ul class="pagination">
-                                <li class="page-item">
-                                    <a href="#" class="page-link" aria-label="Previous">
-                                        <i class="ti-angle-left"></i>
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a href="#" class="page-link">1</a>
-                                </li>
-                                <li class="page-item active">
-                                    <a href="#" class="page-link">2</a>
-                                </li>
-                                <li class="page-item">
-                                    <a href="#" class="page-link" aria-label="Next">
-                                        <i class="ti-angle-right"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
+        
                     </div>
                 </div>
 

@@ -16,7 +16,7 @@
     $article = new Article($db);
 
 
-    $tag_id = isset($_GET['id']) ? htmlspecialchars(strip_tags($_GET['id'])) : die();
+    $tag_id = isset($_GET['tag_id']) ? htmlspecialchars(strip_tags($_GET['tag_id'])) : die();
     // Article query
     $result = $article->getArticlesByTag($tag_id);
 
@@ -24,9 +24,9 @@
 
     if ($num > 0){
 
+        // $tag_array = array();
+        //$article_array['tag_id'] = $tag_id;
         $article_array = array();
-        $article_array['tag_id'] = $tag_id;
-        $article_array['articles'] = array();
 
         while ($row = $result->fetch(PDO::FETCH_ASSOC)){
             extract($row);
@@ -42,7 +42,7 @@
                 'category_id' => $category_id
             );
 
-        array_push($article_array['articles'], $article_item);
+        array_push($article_array, $article_item);
 
 
         }
