@@ -30,7 +30,9 @@
         'content' => $article->content,
         'date_created' => $article->date_created,
         'author' => $article->author,
-        'category_id' => $article->category_id
+        'category_id' => $article->category_id,
+        'category_name' => $article->category_name
+
 
 
 

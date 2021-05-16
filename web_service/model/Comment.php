@@ -1,6 +1,7 @@
 <?php
 
-class Comment{
+class Comment
+{
 
     private $connection;
     private $table = "comment";
@@ -10,44 +11,42 @@ class Comment{
     public $comment;
     public $article_id;
     public $email;
-    public $time;
 
 
-    public function __construct($db){
+    public function __construct($db)
+    {
         $this->connection = $db;
     }
 
 
     // create a new comment
-    public function createComment(){
-        $query = 'INSERT INTO '.$this->table.
-        ' SET comment =:comment, article_id =:article_id, email=:email';
+    public function createComment()
+    {
+        $query = 'INSERT INTO ' . $this->table .
+            ' SET comment =:comment, email=:email, article_id =:article_id';
 
         $ps = $this->connection->prepare($query);
 
         $this->comment = htmlspecialchars(strip_tags($this->comment));
-        $this->article_id = htmlspecialchars(strip_tags($this->article_id));
         $this->email = htmlspecialchars(strip_tags($this->email));
-        $this->time = htmlspecialchars(strip_tags($this->time));
+        $this->article_id = htmlspecialchars(strip_tags($this->article_id));
 
 
         $ps->bindParam(':comment', $this->comment);
-        $ps->bindParam(':article_id', $this->article_id);
         $ps->bindParam(':email', $this->email);
-        $ps->bindParam(':time', $this->time);
+        $ps->bindParam(':article_id', $this->article_id);
 
 
-        if($ps->execute()){
+        if ($ps->execute()) {
             return true;
-        } else {
-            return false;
         }
-
+        return false;
     }
 
-    public function getCommentsByArticle($article_id){
+    public function getCommentsByArticle($article_id)
+    {
         $article_id = htmlspecialchars(strip_tags($article_id));
-        $query = 'SELECT * FROM '.$this->table.' WHERE article_id = '.$article_id;
+        $query = 'SELECT * FROM ' . $this->table . ' WHERE article_id = ' . $article_id;
 
         $ps = $this->connection->prepare($query);
 
@@ -55,12 +54,6 @@ class Comment{
 
 
         return $ps;
-
-
     }
-
-
-
-
 }
 ?>

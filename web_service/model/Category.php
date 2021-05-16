@@ -26,6 +26,18 @@ public function getAllCategories(){
     return $ps;
 }
 
+public function getCategoryName(){
+    $query = 'SELECT category_name
+    FROM' .$this->table. 'INNER JOIN article
+    ON category.category_id = article.category_id;';
+    
+    $ps = $this->connection->prepare($query);
+
+    $ps->execute();
+
+    return $ps;
+}
+
 
 
 }

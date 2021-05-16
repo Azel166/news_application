@@ -12,6 +12,7 @@ public $image;
 public $author;
 public $content;
 public $category_id;
+public $category_name;
 public $date_created;
 
 
@@ -31,6 +32,7 @@ public function getAllArticles(){
 
     return $ps;
 
+
 }
 public function getRecentArticles(){
 
@@ -44,6 +46,7 @@ public function getRecentArticles(){
     return $ps;
 
 }
+
 
 public function getArticlesByCategory($category_id){
     $category_id = htmlspecialchars(strip_tags($category_id));
@@ -107,6 +110,7 @@ public function getArticle($article_id){
     $this->content = $row['content'];
     $this->date_created = $row['date_created'];
     $this->category_id = $row['category_id'];
+    $this->category_name = $row['category_name'];
 }
 
 }

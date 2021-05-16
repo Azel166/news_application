@@ -1,6 +1,22 @@
+<?php
+$article_id = $_GET['article_id'];
+$url = "hhttp://localhost:8080/news_application/web_service/api/article/get_article.php?article_id=$article_id";
+
+$article = curl_init($url);
+curl_setopt($article, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($article);
+
+$result = json_decode($response, true);
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+?>
+
 <div class="comment-form">
     <h4>Leave a Reply</h4>
-    <form class="form-contact comment_form" action="includes/create_comment.php" method = "POST" id="commentForm">
+    <form class="form-contact comment_form" action="includes/create_comment.php" method="POST" id="commentForm">
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
@@ -14,19 +30,15 @@
             </div>
             <div class="col-sm-12">
                 <div class="form-group">
-                <input type="hidden" name="article_id" value="<?php echo $article_id ?>" />
+                    <input type="hidden" name="article_id" value="<?php echo $article_id ?>" />
                 </div>
             </div>
-            <div class="col-sm-12">
-                <div class="form-group">
-                <input type="hidden" name="time" type="datetime" />
-                </div>
-            </div>
-            
-           
+
+
+
         </div>
         <div class="form-group">
-            <button type="submit" class="button button-contactForm">Send Message</button>
+            <input type="submit" class="button button-contactForm" placeholders="Send Message" />
         </div>
     </form>
 </div>
