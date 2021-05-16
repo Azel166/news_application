@@ -220,7 +220,7 @@ $i = 0;
                 <div class="col-lg-4">
                     <div class="single-blog style-five">
                         <div class="thumb">
-                        <img class="img-fluid " src="img/<?php echo $result[21]['image']; ?>" alt="">
+                        <img class="img-fluid " src="img/articles/<?php echo $result[21]['image']; ?>" alt="">
                         </div>
                         <div class="short_details">
                             <div class="meta-top d-flex">
@@ -266,7 +266,7 @@ $i = 0;
                 <div class="col-lg-4">
                     <div class="single-blog style-five">
                         <div class="thumb">
-                        <img class="img-fluid " src="img/<?php echo $result[26]['image']; ?>" alt="">
+                        <img class="img-fluid " src="img/articles/<?php echo $result[26]['image']; ?>" alt="">
                         </div>
                         <div class="short_details">
                             <div class="meta-top d-flex">
