@@ -40,7 +40,9 @@
                 'content' => $content,
                 'date_created' => $date_created,
                 'author' => $author,
-                'category_id' => $category_id
+                'category_id' => $category_id,
+                'category_name' => $category_name
+
             );
 
         array_push($article_array, $article_item);

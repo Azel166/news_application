@@ -26,11 +26,13 @@ error_reporting(E_ALL);
                     <div class="blog_details">
                         <h2><?php echo $result['title']; ?></h2>
                         <ul class="blog-info-link mt-3 mb-4">
-                            <li><a href="#author"><i class="far fa-user" ></i> <?php echo $result['author']; ?></a></li>
+                            <li><a href=""><i class="far fa-user" ></i> <?php echo $result['author']; ?></a></li>
+                            <li><a href=""><i class="far fa-list-alt" ></i> <?php echo $result['category_name']; ?></a></li>
+
                         </ul>
                         <div class="quote-wrapper">
                             <div class="quotes">
-                                <?php echo $result['title']; ?>
+                                <?php echo $result['short_intro']; ?>
                             </div>
                         </div>
                             <p class="excert"><?php echo( $result['content']); ?></p>

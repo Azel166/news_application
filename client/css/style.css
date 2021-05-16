@@ -1,45 +1,5 @@
-/*----------------------------------------------------
-@File: Default Styles
-@Author: Rocky Ahmed
-@URL: http://wethemez.com
-Author E-mail: rockybd1995@gmail.com
 
-This file contains the styling for the actual theme, this
-is the file you need to edit to change the look of the
-theme.
----------------------------------------------------- */
-/*=====================================================================
-@Template Name: Builder Construction 
-@Author: Rocky Ahmed
-@Developed By: Rocky Ahmed
-@Developer URL: http://rocky.wethemez.com
-Author E-mail: rockybd1995@gmail.com
 
-@Default Styles
-
-Table of Content:
-01/ Variables
-02/ predefin
-03/ header
-04/ button
-05/ banner
-06/ breadcrumb
-07/ about
-08/ team
-09/ project 
-10/ price 
-11/ team 
-12/ blog 
-13/ video  
-14/ service  
-15/ career  
-16/ contact 
-17/ footer
-
-=====================================================================*/
-/*----------------------------------------------------*/
-/*font Variables*/
-/*Color Variables*/
 /*=================== fonts ====================*/
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700|Open+Sans:400,600,700");
 /*---------------------------------------------------- */
@@ -2030,7 +1990,8 @@ body.mobile-nav-active #mobile-nav-toggle {
     overflow: hidden;
     position: relative; }
     .single-category .thumb img {
-      width: 100%;
+      width: 400px;
+      height: 250px;
       transition: all 300ms linear 0s; }
   .single-category .meta-bottom {
     margin-bottom: 15px; }
@@ -2094,9 +2055,9 @@ body.mobile-nav-active #mobile-nav-toggle {
       .single-category.small .meta-top a:hover {
         color: #ff7a7f; }
   .single-category.small h4 {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 10px;
-    font-weight: 600;
+    font-weight: normal;
     line-height: 27px;
     transition: all 300ms linear 0s; }
     @media (max-width: 1199px) {
