@@ -16,7 +16,7 @@
     $article = new Article($db);
 
 
-    $article_id = isset($_GET['id']) ? htmlspecialchars(strip_tags($_GET['id'])) : die();
+    $article_id = isset($_GET['article_id']) ? htmlspecialchars(strip_tags($_GET['article_id'])) : die();
     // Article query
     $result = $article->getRelatedArticles($article_id);
 
@@ -25,8 +25,8 @@
     if ($num > 0){
 
         $article_array = array();
-        $article_array['article_id'] = $article_id;
-        $article_array['related_articles'] = array();
+        // $article_array['article_id'] = $article_id;
+        // $article_array['related_articles'] = array();
      
 
         while ($row = $result->fetch(PDO::FETCH_ASSOC)){
@@ -45,7 +45,7 @@
 
             );
 
-        array_push($article_array['related_articles'], $article_item);
+        array_push($article_array, $article_item);
 
 
         }

@@ -16,6 +16,15 @@ $responseTag = curl_exec($tag);
 
 $resultTag = json_decode($responseTag, true);
 
+$urlRelated = 'http://localhost:8080/news_application/web_service/api/article/get_related_articles.php?article_id=' . $article_id;
+
+$related = curl_init($urlRelated);
+curl_setopt($related, CURLOPT_RETURNTRANSFER, true);
+$responseRelated = curl_exec($related);
+
+$resultRelated = json_decode($responseRelated, true);
+$i = 0;
+
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -38,14 +47,14 @@ error_reporting(E_ALL);
                             <li><a href=""><i class="far fa-user"></i> <?php echo $result['author']; ?></a></li>
                             <li><a href="news_by_category.php?category_id=<?php echo $result['category_id']; ?>"><i class="far fa-list-alt"></i> <?php echo $result['category_name']; ?></a></li>
                             <a href="#" class="blog_item_date">
-                                        <?php $date = strtotime($result['date_created']); ?>
-                                        <?php
-                                        $day = date('d', $date);
-                                        $mon_num = date('m', $date);
-                                        $mon = date("F", mktime(0, 0, 0, $mon_num, 10));
-                                        $yr = date('Y', $date);
-                                        ?>
-                                    </a>
+                                <?php $date = strtotime($result['date_created']); ?>
+                                <?php
+                                $day = date('d', $date);
+                                $mon_num = date('m', $date);
+                                $mon = date("F", mktime(0, 0, 0, $mon_num, 10));
+                                $yr = date('Y', $date);
+                                ?>
+                            </a>
                             <li><a href=""><i class="far far fa-calendar"></i> <?php echo  $day, ' ', $mon, ', ', $yr ?></a></li>
 
 
@@ -73,9 +82,30 @@ error_reporting(E_ALL);
 
 
                 <div class="blog-author button-group-area mt-10">
-                <h4>Tag</h4>
+                    <h4>Tag</h4>
 
                     <?php foreach ($resultTag as $keyT => $valueT) : ?>
                         <a href="news_by_tag.php?tag_id=<?php echo $valueT['tag_id']; ?>" class="genric-btn primary-border circle"><?php echo $valueT['tag']; ?></a>
                     <?php endforeach ?>
                 </div>
+                <div class="navigation-area">
+                    <div class="col-lg-12 col-sm-12 mt-sm-30 typo-sec">
+                        <h3 class="mb-20 title_color">Relaed Post</h3>
+                        <div class="">
+                            <ul class="unordered-list">
+                                <?php foreach ($resultRelated as $keyR => $valueR) : ?>
+                                    <li> <a href='single_article.php?article_id=<?php echo $value['article_id']; ?>'>
+                                            <p> <?php echo ($valueR['title']); ?></p>
+                                        </a></li>
+
+                                <?php
+                                    if (++$i == 3) break;
+                                endforeach ?>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
