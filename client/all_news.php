@@ -47,7 +47,7 @@ $total_page = $result[0]['total_page'];
                     </div>
                     <div class="page_link">
                         <a href="index.php">Home</a>
-                        <a href="contact.php">Blog</a>
+                        <a href="category.php">Category</a>
                     </div>
                 </div>
             </div>
