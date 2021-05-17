@@ -88,12 +88,12 @@ error_reporting(E_ALL);
                         <?php endforeach ?>
                     </div>
                     <div class="navigation-area">
-                        <div class="col-lg-8 col-sm-8 mt-sm-30 typo-sec">
+                        <div class="col-lg-12 col-sm-8 mt-sm-30 typo-sec">
                             <h3 class="mb-20 title_color">Related Post</h3>
                             <div class="">
                                 <ul class="unordered-list">
                                     <?php foreach ($resultRelated as $keyR => $valueR) : ?>
-                                        <li> <a href='single_article.php?article_id=<?php echo $value['article_id']; ?>'>
+                                        <li> <a href='single_article.php?article_id=<?php echo $valueT['article_id']; ?>'>
                                                 <p> <?php echo ($valueR['title']); ?></p>
                                             </a></li>
 
