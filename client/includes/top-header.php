@@ -13,7 +13,7 @@
                     </div>
                 </div>
                 <div class="col-6 col-lg-4 col-md-6 col-sm-6 logo-wrapper">
-                    <a href="index.html" class="logo">
+                    <a href="index.php" class="logo">
                         <img src="img/logo.png" alt="">
                     </a>
                 </div>

@@ -84,22 +84,32 @@ error_reporting(E_ALL);
                 <div class="blog-author ">
                     <h4>Tag</h4>
                     <div class="button-group">
-                        <?php foreach ($resultTag as $keyT => $valueT) : ?> <a href="news_by_tag.php?tag_id=<?php echo $valueT['tag_id']; ?>" class="genric-btn primary-border circle"><?php echo $valueT['tag']; ?></a>
-                        <?php endforeach ?>
+
+                        <?php
+                        if ($resultTag['message'] ?? NULL) {
+                            echo $resultTag['message'];
+                        } else {
+                            foreach ($resultTag as $keyT => $valueT) : ?> <a href="news_by_tag.php?tag_id=<?php echo $valueT['tag_id']; ?>" class="genric-btn primary-border circle"><?php echo $valueT['tag']; ?></a>
+                        <?php endforeach;
+                        } ?>
                     </div>
                     <div class="navigation-area">
                         <div class="col-lg-12 col-sm-8 mt-sm-30 typo-sec">
                             <h3 class="mb-20 title_color">Related Post</h3>
                             <div class="">
                                 <ul class="unordered-list">
-                                    <?php foreach ($resultRelated as $keyR => $valueR) : ?>
-                                        <li> <a href='single_article.php?article_id=<?php echo $valueR['article_id']; ?>'>
-                                                <p> <?php echo ($valueR['title']); ?></p>
-                                            </a></li>
+                                    <?php if ($resultRelated['message'] ?? NULL) {
+                                        echo $resultRelated['message'];
+                                    } else {
+                                        foreach ($resultRelated as $keyR => $valueR) : ?>
+                                            <li> <a href='single_article.php?article_id=<?php echo $valueR['article_id']; ?>'>
+                                                    <p> <?php echo ($valueR['title']); ?></p>
+                                                </a></li>
 
                                     <?php
-                                        if (++$i == 3) break;
-                                    endforeach ?>
+                                            if (++$i == 3) break;
+                                        endforeach;
+                                    }  ?>
 
 
                                 </ul>

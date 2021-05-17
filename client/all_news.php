@@ -87,7 +87,7 @@ $total_page = $result[0]['total_page'];
                                     <p><?php echo $value['short_intro']; ?></p>
                                     <ul class="blog-info-link">
                                         <li><a href="#"><i class="far fa-user"></i> <?php echo $value['author']; ?></a></li>
-                                        <li><a href=""><i class="far fa-list-alt" ></i> <?php echo $value['category_name']; ?></a></li>
+                                        <li><a href='news_by_category.php?category_id=<?php echo $value['category_id']; ?>'><i class="far fa-list-alt" ></i> <?php echo $value['category_name']; ?></a></li>
 
                                     </ul>
                                 </div>
