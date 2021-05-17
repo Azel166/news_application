@@ -42,15 +42,20 @@ $i = 0;
                         </div>
                         <div class="short_details">
                             <div class="meta-top d-flex">
-                                <a href="#">Tours & Travel</a>
+                            <a href="news_by_category.php?category_id=1"><?php echo $result[0]['category_name']; ?></a>
                             </div>
-                            <a class="d-block" href="single-blog.html">
-                                <h4>Created face stars sixth forth fow
-                                Earth firmament meat</h4>
+                            <a class="d-block" href='single_article.php?article_id=30'>
+                                <h4><?php echo $result[0]['title']; ?></h4>
                             </a>
                             <div class="meta-bottom d-flex" >
-                                <a href="#">March 12 , 2019 . </a>
-                                <a class="dark_font" href="#">By Alen Mark</a>
+                            <?php $date = strtotime($result[0]['date_created']); ?>
+                                        <?php
+                                        $day = date('d', $date);
+                                        $mon_num = date('m', $date);
+                                        $mon = date("F", mktime(0, 0, 0, $mon_num, 10));
+                                        $yr = date('Y', $date);
+                                        ?>
+                                <a href="#"><?php echo $mon,' ', $day,', ', $yr, ' ' ?></a>                                <a class="dark_font" href="#">By Alen Mark</a>
                             </div>
                         </div>
                     </div>    
@@ -64,15 +69,22 @@ $i = 0;
                         <div class="short_details text-center ">
 
                             <div class="meta-top d-flex justify-content-center">
-                                <a href="#">Tours & Travel</a>
+                            <a href="news_by_category.php?category_id=3"><?php echo $result[2]['category_name']; ?></a>
                             </div>
-                            <a class="d-block" href="single-blog.html">
-                                <h4>Created face stars sixth forth fow
-                                Earth firmament meat</h4>
+                            <a class="d-block" href='single_article.php?article_id=5'>
+                                <h4><?php echo $result[2]['title']; ?></h4>
                             </a>
                             <div class="meta-bottom d-flex justify-content-center">
-                                <a href="#">March 12 , 2019 . </a>
-                                <a href="#">By Alen Mark</a>
+                            <?php $date = strtotime($result[2]['date_created']); ?>
+                                        <?php
+                                        $day = date('d', $date);
+                                        $mon_num = date('m', $date);
+                                        $mon = date("F", mktime(0, 0, 0, $mon_num, 10));
+                                        $yr = date('Y', $date);
+                                        ?>
+                                <a href="#"><?php echo $mon,' ', $day,', ', $yr, ' ' ?></a>  
+                                <a class="dark_font" href="#">/ <?php echo $result[0]['author']; ?></a>
+
                             </div>
                         </div>
                     </div>    
@@ -88,11 +100,11 @@ $i = 0;
                                 <div class="short_details">
 
                                     <div class="meta-top d-flex justify-content-center">
-                                        <a href="#">Lifestyle</a>
+                                    <a href="news_by_category.php?category_id=7"><?php echo $result[3]['category_name']; ?></a>
                                     </div>
-                                    <a class="d-block" href="single-blog.html">
-                                        <h4>The abundantly brought after day fish there image</h4>
-                                    </a>
+                                    <a class="d-block" href='single_article.php?article_id=24'>
+                                <h4><?php echo $result[3]['title']; ?></h4>
+                            </a>
                                 </div>
                             </div>
 
@@ -105,11 +117,11 @@ $i = 0;
                                 <div class="short_details">
 
                                     <div class="meta-top d-flex justify-content-center">
-                                        <a href="#">Lifestyle</a>
+                                    <a href="news_by_category.php?category_id=9"><?php echo $result[5]['category_name']; ?></a>
                                     </div>
-                                    <a class="d-block" href="single-blog.html">
-                                        <h4>The abundantly brought after day fish there image</h4>
-                                    </a>
+                                    <a class="d-block" href='single_article.php?article_id=30'>
+                                <h4><?php echo $result[5]['title']; ?></h4>
+                            </a>
                                 </div>
                             </div>    
                         </div>
@@ -142,12 +154,17 @@ $i = 0;
                         </div>
                         <div class="short_details">
                             <div class="meta-top d-flex">
-                                <a href="#">shoes</a>/
-                                <a href="#">March 15, 2019</a>
-                            </div>
-                            <a class="d-block" href="single-blog.html">
-                                <h4>Created face stars sixth forth fow
-                                Earth firmament meat</h4>
+                            <a href="news_by_category.php?category_id=4"><?php echo $result[15]['category_name']; ?></a>
+                            <?php $date = strtotime($result[15]['date_created']); ?>
+                                        <?php
+                                        $day = date('d', $date);
+                                        $mon_num = date('m', $date);
+                                        $mon = date("F", mktime(0, 0, 0, $mon_num, 10));
+                                        $yr = date('Y', $date);
+                                        ?>
+                                <a href="#"><?php echo $mon,' ', $day,', ', $yr, ' ' ?></a>                            </div>
+                            <a class="d-block" href='single_article.php?article_id=8'>
+                                <h4><?php echo $result[15]['title']; ?></h4>
                             </a>
                             <div class="meta-bottom d-flex">
                                 <a href="#"><i class="ti-comment"></i>05 comment</a>
@@ -165,14 +182,20 @@ $i = 0;
                         <img class="img-fluid " src="img/articles/<?php echo $result[20]['image']; ?>" alt="">
 
                             <div class="meta-top d-flex">
-                                <a href="#">Beauty</a>
+                            <a href="news_by_category.php?category_id=4"><?php echo $result[20]['category_name']; ?></a>
                             </div>
-                            <a class="d-block" href="single-blog.html">
-                                <h4>Blessed night morning on
-                                them you great</h4>
+                            <a class="d-block" href='single_article.php?article_id=10'>
+                                <h4><?php echo $result[20]['title']; ?></h4>
                             </a>
                             <div class="meta-bottom d-flex">
-                                <a href="#"><i class="ti-time"></i>mar 12</a>
+                            <?php $date = strtotime($result[0]['date_created']); ?>
+                                        <?php
+                                        $day = date('d', $date);
+                                        $mon_num = date('m', $date);
+                                        $mon = date("F", mktime(0, 0, 0, $mon_num, 10));
+                                        $yr = date('Y', $date);
+                                        ?>
+                                <a href="#"><i class="ti-time"></i><?php echo $mon,' ', $day?></a>
                                 <a href="#"><i class="ti-heart"></i> 0 like</a>
                                 <a href="#"><i class="ti-eye"></i> 1k view</a>
                             </div>
@@ -183,14 +206,20 @@ $i = 0;
                         
                         <div class="short_details col-12 col-sm-12">
                             <div class="meta-top d-flex">
-                                <a href="#">Beauty</a>
+                            <a href="news_by_category.php?category_id=4"><?php echo $result[24]['category_name']; ?></a>
                             </div>
-                            <a class="d-block" href="single-blog.html">
-                                <h4>Blessed night morning on
-                                them you great</h4>
+                            <a class="d-block" href='single_article.php?article_id=9'>
+                                <h4><?php echo $result[24]['title']; ?></h4>
                             </a>
                             <div class="meta-bottom d-flex">
-                                <a href="#"><i class="ti-time"></i>mar 12</a>
+                            <?php $date = strtotime($result[0]['date_created']); ?>
+                                        <?php
+                                        $day = date('d', $date);
+                                        $mon_num = date('m', $date);
+                                        $mon = date("F", mktime(0, 0, 0, $mon_num, 10));
+                                        $yr = date('Y', $date);
+                                        ?>
+                                <a href="#"><i class="ti-time"></i><?php echo $mon,' ', $day?></a>
                                 <a href="#"><i class="ti-heart"></i> 0 like</a>
                                 <a href="#"><i class="ti-eye"></i> 1k view</a>
                             </div>
@@ -224,16 +253,21 @@ $i = 0;
                         </div>
                         <div class="short_details">
                             <div class="meta-top d-flex">
-                                <a href="#">shoes</a>/
-                                <a href="#">March 15, 2019</a>
-                            </div>
-                            <a class="d-block" href="single-blog.html">
-                                <h4>Shall for rule whose toge one
-                                may heaven to dat</h4>
+                            <a href="news_by_category.php?category_id=5"><?php echo $result[21]['category_name']; ?></a>
+                            <?php $date = strtotime($result[21]['date_created']); ?>
+                                        <?php
+                                        $day = date('d', $date);
+                                        $mon_num = date('m', $date);
+                                        $mon = date("F", mktime(0, 0, 0, $mon_num, 10));
+                                        $yr = date('Y', $date);
+                                        ?>
+                                <a href="#"><?php echo $mon,' ', $day,', ', $yr, ' ' ?></a>                            </div>
+                                <a class="d-block" href='single_article.php?article_id=13'>
+                                <h4><?php echo $result[21]['title']; ?></h4>
                             </a>
                             <div class="meta-bottom d-flex">
-                                <a href="#"><i class="ti-comment"></i>05 comment</a>
-                                <a href="#"><i class="ti-heart"></i> 0 like</a>
+                                <a href="#"><i class="ti-comment"></i>0 comment</a>
+                                <a href="#"><i class="ti-heart"></i> 22 like</a>
                             </div>
                         </div>
                     </div> 
@@ -247,16 +281,21 @@ $i = 0;
                         </div>
                         <div class="short_details">
                             <div class="meta-top d-flex">
-                                <a href="#">shoes</a>/
-                                <a href="#">March 15, 2019</a>
-                            </div>
-                            <a class="d-block" href="single-blog.html">
-                                <h4>Shall for rule whose toge one
-                                may heaven to dat</h4>
+                            <a href="news_by_category.php?category_id=5"><?php echo $result[25]['category_name']; ?></a>
+                            <?php $date = strtotime($result[25]['date_created']); ?>
+                                        <?php
+                                        $day = date('d', $date);
+                                        $mon_num = date('m', $date);
+                                        $mon = date("F", mktime(0, 0, 0, $mon_num, 10));
+                                        $yr = date('Y', $date);
+                                        ?>
+                                <a href="#"><?php echo $mon,' ', $day,', ', $yr, ' ' ?></a>                            </div>
+                                <a class="d-block" href='single_article.php?article_id=11'>
+                                <h4><?php echo $result[25]['title']; ?></h4>
                             </a>
                             <div class="meta-bottom d-flex">
-                                <a href="#"><i class="ti-comment"></i>05 comment</a>
-                                <a href="#"><i class="ti-heart"></i> 0 like</a>
+                                <a href="#"><i class="ti-comment"></i>0 comment</a>
+                                <a href="#"><i class="ti-heart"></i> 40 like</a>
                             </div>
                         </div>
                     </div> 
@@ -270,24 +309,27 @@ $i = 0;
                         </div>
                         <div class="short_details">
                             <div class="meta-top d-flex">
-                                <a href="#">shoes</a>/
-                                <a href="#">March 15, 2019</a>
-                            </div>
-                            <a class="d-block" href="single-blog.html">
-                                <h4>Shall for rule whose toge one
-                                may heaven to dat</h4>
+                            <a href="news_by_category.php?category_id=5"><?php echo $result[26]['category_name']; ?></a>
+                            <?php $date = strtotime($result[26]['date_created']); ?>
+                                        <?php
+                                        $day = date('d', $date);
+                                        $mon_num = date('m', $date);
+                                        $mon = date("F", mktime(0, 0, 0, $mon_num, 10));
+                                        $yr = date('Y', $date);
+                                        ?>
+                                <a href="#"><?php echo $mon,' ', $day,', ', $yr, ' ' ?></a>                            </div>
+                                <a class="d-block" href='single_article.php?article_id=12'>
+                                <h4><?php echo $result[26]['title']; ?></h4>
                             </a>
                             <div class="meta-bottom d-flex">
-                                <a href="#"><i class="ti-comment"></i>05 comment</a>
-                                <a href="#"><i class="ti-heart"></i> 0 like</a>
+                                <a href="#"><i class="ti-comment"></i>0 comment</a>
+                                <a href="#"><i class="ti-heart"></i> 30 like</a>
                             </div>
                         </div>
                     </div> 
                 </div> 
             </div>
-        </div>
-    </div>
-
+   
 
     <!--================ three-block section end =================-->  
 
