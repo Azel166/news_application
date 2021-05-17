@@ -81,31 +81,29 @@ error_reporting(E_ALL);
                 </div>
 
 
-                <div class="blog-author button-group-area mt-10">
+                <div class="blog-author ">
                     <h4>Tag</h4>
+                    <div class="button-group">
+                        <?php foreach ($resultTag as $keyT => $valueT) : ?> <a href="news_by_tag.php?tag_id=<?php echo $valueT['tag_id']; ?>" class="genric-btn primary-border circle"><?php echo $valueT['tag']; ?></a>
+                        <?php endforeach ?>
+                    </div>
+                    <div class="navigation-area">
+                        <div class="col-lg-8 col-sm-8 mt-sm-30 typo-sec">
+                            <h3 class="mb-20 title_color">Related Post</h3>
+                            <div class="">
+                                <ul class="unordered-list">
+                                    <?php foreach ($resultRelated as $keyR => $valueR) : ?>
+                                        <li> <a href='single_article.php?article_id=<?php echo $value['article_id']; ?>'>
+                                                <p> <?php echo ($valueR['title']); ?></p>
+                                            </a></li>
 
-                    <?php foreach ($resultTag as $keyT => $valueT) : ?>
-                        <a href="news_by_tag.php?tag_id=<?php echo $valueT['tag_id']; ?>" class="genric-btn primary-border circle"><?php echo $valueT['tag']; ?></a>
-                    <?php endforeach ?>
-                </div>
-                <div class="navigation-area">
-                    <div class="col-lg-12 col-sm-12 mt-sm-30 typo-sec">
-                        <h3 class="mb-20 title_color">Relaed Post</h3>
-                        <div class="">
-                            <ul class="unordered-list">
-                                <?php foreach ($resultRelated as $keyR => $valueR) : ?>
-                                    <li> <a href='single_article.php?article_id=<?php echo $value['article_id']; ?>'>
-                                            <p> <?php echo ($valueR['title']); ?></p>
-                                        </a></li>
-
-                                <?php
-                                    if (++$i == 3) break;
-                                endforeach ?>
+                                    <?php
+                                        if (++$i == 3) break;
+                                    endforeach ?>
 
 
-                            </ul>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>

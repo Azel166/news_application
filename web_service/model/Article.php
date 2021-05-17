@@ -78,16 +78,16 @@ public function getArticlesByTag($tag_id){
 
 public function getRelatedArticles($article_id){
     $article_id = htmlspecialchars(strip_tags($article_id));
-    $query = 'SELECT * FROM '.$this->table.' INNER JOIN article_tag ON article.article_id = article_tag.article_id WHERE article_tag.tag_id IN (SELECT article_tag.tag_id FROM article INNER JOIN article_tag ON article.article_id = article_tag.article_id WHERE article.article_id = ?)';
-
+    $query = 'SELECT DISTINCT(a.article_id), a.author, a.title, a.short_intro, a.content, a.date_created, a.category_id, a.category_name, a.image FROM '.$this->table.' a INNER JOIN article_tag ON a.article_id = article_tag.article_id WHERE article_tag.tag_id IN (SELECT article_tag.tag_id FROM article INNER JOIN article_tag ON article.article_id = article_tag.article_id WHERE article.article_id = ?) AND a.article_id != ?';
     $ps = $this->connection->prepare($query);
 
     $ps->bindParam(1, $article_id);
-
+    $ps->bindParam(2, $article_id);
     $ps->execute();
 
     return $ps;
 }
+
 
 // get a single article by its id
 public function getArticle($article_id){
