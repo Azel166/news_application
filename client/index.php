@@ -1,5 +1,5 @@
 <?php
-$url = "http://localhost:8080/news_application/web_service/api/article/get_all_recent_articles.php";
+$url = "http://localhost/news_application/web_service/api/article/get_all_recent_articles.php";
 
 $news = curl_init($url);
 curl_setopt($news, CURLOPT_RETURNTRANSFER, true);

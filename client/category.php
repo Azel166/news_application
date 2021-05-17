@@ -1,6 +1,6 @@
 <?php
 
-$url = "http://localhost:8080/news_application/web_service/api/category/get_all_categories.php";
+$url = "http://localhost/news_application/web_service/api/category/get_all_categories.php";
 
 $cate = curl_init($url);
 curl_setopt($cate, CURLOPT_RETURNTRANSFER, true);

@@ -1,6 +1,6 @@
 <?php
 
-$tagListUrl = "http://localhost:8080/news_application/web_service/api/tag/get_all_tags.php";
+$tagListUrl = "http://localhost/news_application/web_service/api/tag/get_all_tags.php";
 
 $tagList = curl_init($tagListUrl);
 curl_setopt($tagList, CURLOPT_RETURNTRANSFER, true);

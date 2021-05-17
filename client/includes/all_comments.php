@@ -1,12 +1,14 @@
 <?php
 $article_id = $_GET['article_id'];
-$url = 'http://localhost:8080/news_application/web_service/api/comment/get_comments_by_article.php?article_id=' . $article_id;
+$url = 'http://localhost/news_application/web_service/api/comment/get_comments_by_article.php?article_id=' . $article_id;
 
 $tag = curl_init($url);
 curl_setopt($tag, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($tag);
 
 $result = json_decode($response, true);
+
+$result = $result["comments"];
 
 
 ?>
@@ -36,17 +38,7 @@ $result = json_decode($response, true);
                                     <h5>
                                         <a href="#"><?php echo $value['email'] ?></a>
                                     </h5>
-                                    <?php $date = strtotime($value['time']); ?>
-                                    <?php
-                                    $day = date('d', $date);
-                                    $mon_num = date('m', $date);
-                                    $mon = date("F", mktime(0, 0, 0, $mon_num, 10));
-                                    $yr = date('Y', $date);
-                                    $hour = date("h");
-                                    $minute = date("i");
-                                    ?>
-
-                                    <p class="date"><?php echo  $day, ' ', $mon, ' ', $yr, ' at ', $hour, ': ', $minute  ?> </p>
+                                   
                                 </div>
 
                                 <div class="reply-btn">

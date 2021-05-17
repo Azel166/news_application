@@ -22,8 +22,8 @@ $num = $result->rowCount();
 
 if ($num > 0) {
     $comment_array = array();
-    // $comment_array['article_id'] = $article_id;
-    // $comment_array['comments'] = array();
+    $comment_array['article_id'] = $article_id;
+    $comment_array['comments'] = array();
 
 
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
@@ -34,11 +34,11 @@ if ($num > 0) {
             'comment' => $comment,
             'article_id' => $article_id,
             'email' => $email,
-            'time' =>$time
+            // 'time' =>$time
 
         );
 
-        array_push($comment_array, $comment_item);
+        array_push($comment_array["comments"], $comment_item);
     }
 
     http_response_code(200);

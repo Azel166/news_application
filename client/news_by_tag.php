@@ -1,7 +1,7 @@
 <?php
 
 $tag_id = $_GET['tag_id'];
-$urlTag = 'http://localhost:8080/news_application/web_service/api/article/get_articles_by_tag.php?tag_id='.$tag_id;
+$urlTag = 'http://localhost/news_application/web_service/api/article/get_articles_by_tag.php?tag_id='.$tag_id;
 
 $newsTag = curl_init($urlTag);
 curl_setopt($newsTag, CURLOPT_RETURNTRANSFER, true);

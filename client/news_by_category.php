@@ -1,7 +1,7 @@
 <?php
 
 $category_id = $_GET['category_id'];
-$urlCate = 'http://localhost:8080/news_application/web_service/api/article/get_articles_by_category.php?category_id='.$category_id;
+$urlCate = 'http://localhost/news_application/web_service/api/article/get_articles_by_category.php?category_id='.$category_id;
 
 $newsCate = curl_init($urlCate);
 curl_setopt($newsCate, CURLOPT_RETURNTRANSFER, true);
