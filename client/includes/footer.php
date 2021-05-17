@@ -26,7 +26,7 @@
                 <p>Heaven fruitful doesn't over lesser in days. Appear creeping seasons deve behold bearing days open</p>
 
                 <div class="form-wrap" id="mc_embed_signup">
-                    <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get">
+                    <form target="_blank" action="xs" method="get">
                         <div class="input-group">
                             <input type="email" class="form-control" name="EMAIL" placeholder="Your Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '">
                             <div class="input-group-append">
@@ -67,3 +67,4 @@
 <script src="js/jquery.validate.min.js"></script>
 <script src="js/mail-script.js"></script>
 <script src="js/theme.js"></script>
+

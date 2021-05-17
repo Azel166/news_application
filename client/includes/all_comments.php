@@ -36,17 +36,7 @@ $result = json_decode($response, true);
                                     <h5>
                                         <a href="#"><?php echo $value['email'] ?></a>
                                     </h5>
-                                    <?php $date = strtotime($value['time']); ?>
-                                    <?php
-                                    $day = date('d', $date);
-                                    $mon_num = date('m', $date);
-                                    $mon = date("F", mktime(0, 0, 0, $mon_num, 10));
-                                    $yr = date('Y', $date);
-                                    $hour = date("h");
-                                    $minute = date("i");
-                                    ?>
-
-                                    <p class="date"><?php echo  $day, ' ', $mon, ' ', $yr, ' at ', $hour, ': ', $minute  ?> </p>
+                                   
                                 </div>
 
                                 <div class="reply-btn">
