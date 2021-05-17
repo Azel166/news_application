@@ -93,7 +93,7 @@ error_reporting(E_ALL);
                             <div class="">
                                 <ul class="unordered-list">
                                     <?php foreach ($resultRelated as $keyR => $valueR) : ?>
-                                        <li> <a href='single_article.php?article_id=<?php echo $valueT['article_id']; ?>'>
+                                        <li> <a href='single_article.php?article_id=<?php echo $valueR['article_id']; ?>'>
                                                 <p> <?php echo ($valueR['title']); ?></p>
                                             </a></li>
 
