@@ -31,6 +31,8 @@
             $category_item = array(
                 'category_id' => $category_id,
                 'category_name' => $category_name ,
+                'category_desc' => $category_desc ,
+
                 'image' => $image
             );
 
