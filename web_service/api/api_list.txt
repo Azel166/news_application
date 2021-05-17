@@ -14,7 +14,7 @@ I. Article api
             ....
         ]
 
-* get a single article by id: GET http://localhost/news_application/web_service/api/article/get_article.php?id=#
+* get a single article by id: GET http://localhost/news_application/web_service/api/article/get_article.php?article_id=#
 
 * get articles by category id: GET http://localhost/news_application/web_service/api/article/get_articles_by_category.php?id=#
 

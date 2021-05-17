@@ -7,6 +7,7 @@
     
     include_once '../../config/Database.php';
     include_once '../../model/Article.php';
+    include_once '../../model/Tag.php';
 
     // instantiate DB & connect
     $database = new Database();
@@ -14,9 +15,16 @@
     $db = $database->connect();
 
     $article = new Article($db);
+    $tagg = new Tag($db);
 
 
     $tag_id = isset($_GET['tag_id']) ? htmlspecialchars(strip_tags($_GET['tag_id'])) : die();
+
+
+
+
+    $tagg->getTagById($tag_id);
+    
     // Article query
     $result = $article->getArticlesByTag($tag_id);
 
@@ -24,9 +32,10 @@
 
     if ($num > 0){
 
-        // $tag_array = array();
-        //$article_array['tag_id'] = $tag_id;
-        $article_array = array();
+        $tag_array = array();
+        $article_array['tag_id'] = $tag_id;
+        $article_array['tag'] = $tagg->tag;
+        $article_array['articles'] = array();
 
         while ($row = $result->fetch(PDO::FETCH_ASSOC)){
             extract($row);
@@ -44,7 +53,7 @@
 
             );
 
-        array_push($article_array, $article_item);
+        array_push($article_array['articles'], $article_item);
 
 
         }

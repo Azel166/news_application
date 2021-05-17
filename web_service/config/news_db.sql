@@ -2,10 +2,10 @@
 -- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: localhost
--- Thời gian đã tạo: Th5 17, 2021 lúc 02:52 AM
--- Phiên bản máy phục vụ: 10.4.18-MariaDB
--- Phiên bản PHP: 8.0.3
+-- Host: 127.0.0.1
+-- Generation Time: May 17, 2021 at 04:19 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,15 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `news_db`
+-- Database: `news_db`
 --
+CREATE DATABASE IF NOT EXISTS `news_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `news_db`;
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `article`
+-- Table structure for table `article`
 --
 
 CREATE TABLE `article` (
@@ -40,7 +42,7 @@ CREATE TABLE `article` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `article`
+-- Dumping data for table `article`
 --
 
 INSERT INTO `article` (`article_id`, `title`, `short_intro`, `author`, `content`, `date_created`, `category_id`, `category_name`, `image`) VALUES
@@ -81,7 +83,7 @@ INSERT INTO `article` (`article_id`, `title`, `short_intro`, `author`, `content`
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `article_tag`
+-- Table structure for table `article_tag`
 --
 
 CREATE TABLE `article_tag` (
@@ -91,7 +93,7 @@ CREATE TABLE `article_tag` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `article_tag`
+-- Dumping data for table `article_tag`
 --
 
 INSERT INTO `article_tag` (`art_tag_id`, `tag_id`, `article_id`) VALUES
@@ -218,7 +220,7 @@ INSERT INTO `article_tag` (`art_tag_id`, `tag_id`, `article_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `category`
+-- Table structure for table `category`
 --
 
 CREATE TABLE `category` (
@@ -229,7 +231,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `category`
+-- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`category_id`, `category_name`, `category_desc`, `image`) VALUES
@@ -246,7 +248,7 @@ INSERT INTO `category` (`category_id`, `category_name`, `category_desc`, `image`
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `comment`
+-- Table structure for table `comment`
 --
 
 CREATE TABLE `comment` (
@@ -257,17 +259,18 @@ CREATE TABLE `comment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `comment`
+-- Dumping data for table `comment`
 --
 
 INSERT INTO `comment` (`comment_id`, `comment`, `email`, `article_id`) VALUES
-(1, 'So terrible', 'anh@gmail.com', 1),
-(2, 'huhu', 'nan312@gmail.com', 1);
+(1, 'Informative', 'abc@gmail.com', 10),
+(2, 'dfdfgdf', 'sugarnofree@gmail.com', 5),
+(3, 'sdsd', 'sugarnofree@gmail.com', 5);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tag`
+-- Table structure for table `tag`
 --
 
 CREATE TABLE `tag` (
@@ -276,7 +279,7 @@ CREATE TABLE `tag` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `tag`
+-- Dumping data for table `tag`
 --
 
 INSERT INTO `tag` (`tag_id`, `tag`) VALUES
@@ -399,18 +402,18 @@ INSERT INTO `tag` (`tag_id`, `tag`) VALUES
 (117, 'Covid-19');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `article`
+-- Indexes for table `article`
 --
 ALTER TABLE `article`
   ADD PRIMARY KEY (`article_id`),
   ADD KEY `fk_1` (`category_id`);
 
 --
--- Chỉ mục cho bảng `article_tag`
+-- Indexes for table `article_tag`
 --
 ALTER TABLE `article_tag`
   ADD PRIMARY KEY (`art_tag_id`),
@@ -418,23 +421,57 @@ ALTER TABLE `article_tag`
   ADD KEY `fk_arttag_2` (`article_id`);
 
 --
--- Chỉ mục cho bảng `category`
+-- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`category_id`);
 
 --
--- Chỉ mục cho bảng `comment`
+-- Indexes for table `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`comment_id`),
   ADD KEY `fk_comment_1` (`article_id`);
 
 --
--- Chỉ mục cho bảng `tag`
+-- Indexes for table `tag`
 --
 ALTER TABLE `tag`
   ADD PRIMARY KEY (`tag_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `article`
+--
+ALTER TABLE `article`
+  MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `article_tag`
+--
+ALTER TABLE `article_tag`
+  MODIFY `art_tag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tag`
+--
+ALTER TABLE `tag`
+  MODIFY `tag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
