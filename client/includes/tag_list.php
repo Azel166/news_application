@@ -1,6 +1,6 @@
 <?php
 
-$tagListUrl = "http://localhost:8080/news_application/web_service/api/tag/get_all_tags.php";
+$tagListUrl = "http://localhost/news_application/web_service/api/tag/get_all_tags.php";
 
 $tagList = curl_init($tagListUrl);
 curl_setopt($tagList, CURLOPT_RETURNTRANSFER, true);
@@ -11,12 +11,12 @@ $i=0;
 ?>
 
 <aside class="single_sidebar_widget tag_cloud_widget">
-    <h4 class="widget_title">Tag Clouds</h4>
+    <h4 class="widget_title">Popular tags</h4>
     <ul class="list">
         <?php foreach ($tagListResult as $keyTag => $valueTag) : ?>
 
-            <li>
-                <a  href="news_by_tag.php?tag_id=<?php echo $valueTag['tag_id']; ?>"><?php echo $valueTag['tag']; ?></a>
+            <li >
+                <a <?php if ($tag_id ?? null && $valueTag['tag_id'] == $tag_id) echo 'style="background-color:#ff7a7f; color:white;"'?> href="news_by_tag.php?tag_id=<?php echo $valueTag['tag_id']; ?>"><?php echo $valueTag['tag']; ?></a>
             </li>
             <?php if (++$i == 10) break; ?>
 

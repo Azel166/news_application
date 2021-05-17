@@ -1,7 +1,7 @@
 <?php
 
 $category_id = $_GET['category_id'];
-$urlCate = 'http://localhost:8080/news_application/web_service/api/article/get_articles_by_category.php?category_id='.$category_id;
+$urlCate = 'http://localhost/news_application/web_service/api/article/get_articles_by_category.php?category_id='.$category_id;
 
 $newsCate = curl_init($urlCate);
 curl_setopt($newsCate, CURLOPT_RETURNTRANSFER, true);
@@ -44,7 +44,7 @@ error_reporting(E_ALL);
             <div class="container">
                 <div class="banner_content d-md-flex justify-content-between align-items-center">
                     <div class="mb-3 mb-md-0">
-                        <h2>Lastest News</h2>
+                        <h2><?php echo $resultCate[0]['category_name'] ;?> news</h2>
                     </div>
                     <div class="page_link">
                         <a href="index.php">Home</a>
@@ -113,6 +113,14 @@ error_reporting(E_ALL);
 
     <!-- ================ End footer Area ================= -->
 
+
+    <script type="text/javascript">
+    const active = document.querySelector("#nav-cat");
+    active.classList.add("active");
+    </script>
+
 </body>
+
+
 
 </html>

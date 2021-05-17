@@ -1,5 +1,5 @@
 <?php
-$url = "http://localhost:8080/news_application/web_service/api/article/get_all_recent_articles.php";
+$url = "http://localhost/news_application/web_service/api/article/get_all_recent_articles.php";
 
 $news = curl_init($url);
 curl_setopt($news, CURLOPT_RETURNTRANSFER, true);
@@ -344,7 +344,10 @@ $i = 0;
     <?php include('includes/footer.php'); ?>
 
     <!-- ================ End footer Area ================= -->
-
+    <script type="text/javascript">
+    const active = document.querySelector("#nav-home");
+    active.classList.add("active");
+    </script>
 </body>
 
 </html>

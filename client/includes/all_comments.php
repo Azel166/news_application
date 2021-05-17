@@ -1,12 +1,14 @@
 <?php
 $article_id = $_GET['article_id'];
-$url = 'http://localhost:8080/news_application/web_service/api/comment/get_comments_by_article.php?article_id=' . $article_id;
+$url = 'http://localhost/news_application/web_service/api/comment/get_comments_by_article.php?article_id=' . $article_id;
 
 $tag = curl_init($url);
 curl_setopt($tag, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($tag);
 
 $result = json_decode($response, true);
+
+$result = $result;
 
 
 ?>
@@ -17,7 +19,7 @@ $result = json_decode($response, true);
     if ($result['message'] ?? NULL) {
         echo $result['message'];
     } else {
-        foreach ($result as $key => $value) :
+        foreach ($result["comments"] as $key => $value) :
     ?>
 
             <div class="comment-list">

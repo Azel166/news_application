@@ -1,6 +1,6 @@
 <?php
 $article_id = $_GET['article_id'];
-$url = 'http://localhost:8080/news_application/web_service/api/article/get_article.php?article_id=' . $article_id;
+$url = 'http://localhost/news_application/web_service/api/article/get_article.php?article_id=' . $article_id;
 
 $news = curl_init($url);
 curl_setopt($news, CURLOPT_RETURNTRANSFER, true);
@@ -8,7 +8,7 @@ $response = curl_exec($news);
 
 $result = json_decode($response, true);
 
-$urlTag = 'http://localhost:8080/news_application/web_service/api/tag/get_tags_by_article.php?article_id=' . $article_id;
+$urlTag = 'http://localhost/news_application/web_service/api/tag/get_tags_by_article.php?article_id=' . $article_id;
 
 $tag = curl_init($urlTag);
 curl_setopt($tag, CURLOPT_RETURNTRANSFER, true);
@@ -16,7 +16,7 @@ $responseTag = curl_exec($tag);
 
 $resultTag = json_decode($responseTag, true);
 
-$urlRelated = 'http://localhost:8080/news_application/web_service/api/article/get_related_articles.php?article_id=' . $article_id;
+$urlRelated = 'http://localhost/news_application/web_service/api/article/get_related_articles.php?article_id=' . $article_id;
 
 $related = curl_init($urlRelated);
 curl_setopt($related, CURLOPT_RETURNTRANSFER, true);
@@ -89,7 +89,7 @@ error_reporting(E_ALL);
                         if ($resultTag['message'] ?? NULL) {
                             echo $resultTag['message'];
                         } else {
-                            foreach ($resultTag as $keyT => $valueT) : ?> <a href="news_by_tag.php?tag_id=<?php echo $valueT['tag_id']; ?>" class="genric-btn primary-border circle"><?php echo $valueT['tag']; ?></a>
+                            foreach ($resultTag['tags'] as $keyT => $valueT) : ?> <a href="news_by_tag.php?tag_id=<?php echo $valueT['tag_id']; ?>" class="genric-btn primary-border circle"><?php echo $valueT['tag']; ?></a>
                         <?php endforeach;
                         } ?>
                     </div>

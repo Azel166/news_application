@@ -10,18 +10,12 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-                        <li class="nav-item active"><a class="nav-link" href="index.php">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="category.php">Categories</a></li>
-                        <!-- <li class="nav-item"><a class="nav-link" href="archive.html">Archive</a></li> -->
-                        <!-- <li class="nav-item submenu dropdown"> -->
-                            <!-- <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a> -->
-                            <!-- <ul class="dropdown-menu"> -->
-                        <!-- <li class="nav-item"><a class="nav-link" href="blog.php">Blog</a></li> -->
-                        <!-- <li class="nav-item"><a class="nav-link" href="single-blog.php">Blog Details</a></li> -->
-                        <!-- </ul> -->
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="all_news.php">All news</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.php">Contact us</a></li>
+                        <li id="nav-home" class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                        <li id="nav-cat" class="nav-item"><a class="nav-link" href="category.php">Categories</a></li>
+                       
+                   
+                        <li id="nav-all" class="nav-item"><a class="nav-link" href="all_news.php">All news</a></li>
+                        <li id="nav-us" class="nav-item"><a class="nav-link" href="contact.php">Contact us</a></li>
                     </ul>
                 </div>
             </div>

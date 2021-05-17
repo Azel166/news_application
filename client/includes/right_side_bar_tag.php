@@ -2,10 +2,10 @@
 
  <div class="col-lg-4">
                     <div class="blog_right_sidebar">
-                        
+                       
                         <!--================ Category List =================-->
 
-                        <?php include('category_list.php'); ?>
+                      
 
 
                         <!--================ Recent Posts List =================-->
@@ -15,7 +15,32 @@
 
                         <!--================ Tag List =================-->
 
-                        <?php include('tag_list.php'); ?>
+                        <?php
+
+$tagListUrl = "http://localhost/news_application/web_service/api/tag/get_all_tags.php";
+
+$tagList = curl_init($tagListUrl);
+curl_setopt($tagList, CURLOPT_RETURNTRANSFER, true);
+$tagListResponse = curl_exec($tagList);
+
+$tagListResult = json_decode($tagListResponse, true);
+$i=0;
+?>
+
+<aside class="single_sidebar_widget tag_cloud_widget">
+    <h4 class="widget_title">All tags</h4>
+    <ul class="list">
+        <?php foreach ($tagListResult as $keyTag => $valueTag) : ?>
+
+            <li >
+                <a <?php if ($valueTag['tag_id'] == $tag_id) echo 'style="background-color:#ff7a7f; color:white;"'?> href="news_by_tag.php?tag_id=<?php echo $valueTag['tag_id']; ?>"><?php echo $valueTag['tag']; ?></a>
+            </li>
+           
+
+        <?php endforeach ?>
+    </ul>
+
+</aside>
 
 
 

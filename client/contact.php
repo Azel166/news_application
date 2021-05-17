@@ -119,4 +119,10 @@
     <?php include('includes/footer.php'); ?>
 
     <!-- ================ End footer Area ================= -->
+    <script type="text/javascript">
+    const active = document.querySelector("#nav-us");
+    active.classList.add("active");
+    </script>
+
+    </body>
 </html>

@@ -5,14 +5,14 @@ if (!isset($_GET['page'])) {
     $page = $_GET['page'];
 }
 
-$url = "http://localhost:8080/news_application/web_service/api/article/get_all_articles.php";
+$url = "http://localhost/news_application/web_service/api/article/get_all_articles.php";
 
 $news = curl_init($url);
 curl_setopt($news, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($news);
 
 $result = json_decode($response, true);
-$total_page = $result[0]['total_page'];
+
 
 ?>
 
@@ -47,7 +47,7 @@ $total_page = $result[0]['total_page'];
                     </div>
                     <div class="page_link">
                         <a href="index.php">Home</a>
-                        <a href="category.php">Category</a>
+                        <a href="category.php">All news</a>
                     </div>
                 </div>
             </div>
@@ -130,6 +130,10 @@ $total_page = $result[0]['total_page'];
     <?php include('includes/footer.php'); ?>
 
     <!-- ================ End footer Area ================= -->
+    <script type="text/javascript">
+    const active = document.querySelector("#nav-all");
+    active.classList.add("active");
+    </script>
 
 </body>
 

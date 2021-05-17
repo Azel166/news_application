@@ -1,13 +1,15 @@
 <?php
 
 $tag_id = $_GET['tag_id'];
-$urlTag = 'http://localhost:8080/news_application/web_service/api/article/get_articles_by_tag.php?tag_id='.$tag_id;
+$urlTag = 'http://localhost/news_application/web_service/api/article/get_articles_by_tag.php?tag_id='.$tag_id;
 
 $newsTag = curl_init($urlTag);
 curl_setopt($newsTag, CURLOPT_RETURNTRANSFER, true);
 $responseTag = curl_exec($newsTag);
 
 $resultTag = json_decode($responseTag, true);
+$tag = $resultTag['tag'];
+// $resultTag = $resultTag['articles'];
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -42,7 +44,8 @@ error_reporting(E_ALL);
             <div class="container">
                 <div class="banner_content d-md-flex justify-content-between align-items-center">
                     <div class="mb-3 mb-md-0">
-                        <h2>Lastest News</h2>
+                        <h2>News by Tag: </br><?php echo $tag?></h2>
+                       
                     </div>
                     <div class="page_link">
                         <a href="index.php">Home</a>
@@ -61,7 +64,7 @@ error_reporting(E_ALL);
             <div class="row">
                 <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="blog_left_sidebar">
-                        <?php foreach ($resultTag as $keyC => $valueC) : ?>
+                        <?php foreach ($resultTag['articles'] as $keyC => $valueC) : ?>
                             <article class="blog_item">
                                 <div class="blog_item_img">
                                     <img class="card-img rounded-0" src="img/articles/<?php echo $valueC['image']; ?>" alt="">
@@ -102,7 +105,7 @@ error_reporting(E_ALL);
                 </div>
 
                 <!--================ Right Side Bar =================-->
-                <?php include('includes/right_side_bar.php'); ?>
+                <?php include('includes/right_side_bar_tag.php'); ?>
 
 
 

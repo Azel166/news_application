@@ -1,6 +1,6 @@
 <?php
 
-$url = "http://localhost:8080/news_application/web_service/api/category/get_all_categories.php";
+$url = "http://localhost/news_application/web_service/api/category/get_all_categories.php";
 
 $cate = curl_init($url);
 curl_setopt($cate, CURLOPT_RETURNTRANSFER, true);
@@ -122,6 +122,10 @@ $result = json_decode($response, true);
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript">
+    const active = document.querySelector("#nav-cat");
+    active.classList.add("active");
+    </script>
     <script src="js/jquery-2.2.4.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>

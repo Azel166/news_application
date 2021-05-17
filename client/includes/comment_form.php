@@ -1,6 +1,6 @@
 <?php
 $article_id = $_GET['article_id'];
-$url = "hhttp://localhost:8080/news_application/web_service/api/article/get_article.php?article_id=$article_id";
+$url = "http://localhost/news_application/web_service/api/article/get_article.php?article_id=$article_id";
 
 $article = curl_init($url);
 curl_setopt($article, CURLOPT_RETURNTRANSFER, true);
@@ -20,12 +20,12 @@ error_reporting(E_ALL);
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
-                    <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9" placeholder="Write Comment"></textarea>
+                    <textarea required class="form-control w-100" name="comment" id="comment" cols="30" rows="9" placeholder="Write Comment"></textarea>
                 </div>
             </div>
             <div class="col-sm-12">
                 <div class="form-group">
-                    <input class="form-control" name="email" id="email" type="text" placeholder="Email">
+                    <input required class="form-control" name="email" id="email" type="text" placeholder="Email">
                 </div>
             </div>
             <div class="col-sm-12">
